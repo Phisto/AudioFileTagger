@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42913C01BBE62C40027FC28 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42913BF1BBE62C40027FC28 /* TagLib.framework */; };
+		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; settings = {ASSET_TAGS = (); }; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4C0FA7E1BBD480000E0AD6C /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA7D1BBD480000E0AD6C /* TagLib.framework */; settings = {ASSET_TAGS = (); }; };
-		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ASSET_TAGS = (); }; };
+		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F42913B51BBE61810027FC28 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F42913BF1BBE62C40027FC28 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/ConverterWorkspace-ahskqvxvvbdmkyerjdggslcbhfvn/Build/Products/Debug/TagLib.framework"; sourceTree = "<group>"; };
+		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
+		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
 		F4C0FA771BBD47F900E0AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4C0FA7D1BBD480000E0AD6C /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TagLib.framework; sourceTree = "<group>"; };
 		F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MP3Tagger.h; path = Tagger/MP3Tagger.h; sourceTree = "<group>"; };
 		F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MP3Tagger.m; path = Tagger/MP3Tagger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -27,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C0FA7E1BBD480000E0AD6C /* TagLib.framework in Frameworks */,
+				F42913C01BBE62C40027FC28 /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +53,7 @@
 		F4C0FA681BBD47F900E0AD6C = {
 			isa = PBXGroup;
 			children = (
+				F42913BF1BBE62C40027FC28 /* TagLib.framework */,
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 			);
@@ -56,7 +73,8 @@
 				F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */,
 				F4C0FA771BBD47F900E0AD6C /* Info.plist */,
 				F4C0FA831BBD482200E0AD6C /* Tagger */,
-				F4C0FA7D1BBD480000E0AD6C /* TagLib.framework */,
+				F42913C81BBE7A1B0027FC28 /* Metadata.h */,
+				F42913C91BBE7A1B0027FC28 /* Metadata.m */,
 			);
 			path = AudioFileTagger;
 			sourceTree = "<group>";
@@ -79,6 +97,7 @@
 			files = (
 				F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */,
 				F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */,
+				F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +112,7 @@
 				F4C0FA6E1BBD47F900E0AD6C /* Frameworks */,
 				F4C0FA6F1BBD47F900E0AD6C /* Headers */,
 				F4C0FA701BBD47F900E0AD6C /* Resources */,
+				F42913B51BBE61810027FC28 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -114,6 +134,7 @@
 				TargetAttributes = {
 					F4C0FA711BBD47F900E0AD6C = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = N67G6688LK;
 					};
 				};
 			};
@@ -149,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */,
 				F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +266,7 @@
 		F4C0FA7B1BBD47F900E0AD6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -254,9 +277,14 @@
 					"$(PROJECT_DIR)/AudioFileTagger",
 				);
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AudioFileTagger/TagLib.framework/Versions/A/Headers";
 				INFOPLIST_FILE = AudioFileTagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.AudioFileTagger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -266,6 +294,7 @@
 		F4C0FA7C1BBD47F900E0AD6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -276,9 +305,14 @@
 					"$(PROJECT_DIR)/AudioFileTagger",
 				);
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AudioFileTagger/TagLib.framework/Versions/A/Headers";
 				INFOPLIST_FILE = AudioFileTagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.AudioFileTagger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -304,6 +338,7 @@
 				F4C0FA7C1BBD47F900E0AD6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Metadata.h"
+
 @interface MP3Tagger : NSObject
+
+@property (nonatomic, strong) Metadata *metadata;
+
++ (instancetype)taggerForFile:(NSURL *)file;
+
+- (BOOL)tag;
 
 @end

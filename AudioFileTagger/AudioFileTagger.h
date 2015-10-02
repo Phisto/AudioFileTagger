@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double AudioFileTaggerVersionNumber;
 //! Project version string for AudioFileTagger.
 FOUNDATION_EXPORT const unsigned char AudioFileTaggerVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <AudioFileTagger/PublicHeader.h>
-
-
+// Public Header
+#import "MP3Tagger.h"
+#import "Metadata.h"
