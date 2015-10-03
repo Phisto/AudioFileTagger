@@ -52,7 +52,7 @@
 
 - (BOOL)tag {
     
-    if (self.metadata) {
+    if (self.metadata.isValid) {
         
         TagLib::MPEG::File f([[self.file path] fileSystemRepresentation]);
         (TagLib::ID3v2::FrameFactory::instance())->setDefaultTextEncoding(TagLib::String::UTF8);
@@ -137,16 +137,11 @@
     }
 }
 
-NSData *
-getPNGDataForImage(NSImage *image)
-{
+NSData * getPNGDataForImage(NSImage *image) {
     return getBitmapDataForImage(image, NSPNGFileType);
 }
 
-NSData *
-getBitmapDataForImage(NSImage					*image,
-                      NSBitmapImageFileType		type)
-{
+NSData * getBitmapDataForImage(NSImage *image, NSBitmapImageFileType type) {
     NSCParameterAssert(nil != image);
     
     NSEnumerator		*enumerator					= nil;
