@@ -7,30 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F42913C01BBE62C40027FC28 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42913BF1BBE62C40027FC28 /* TagLib.framework */; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; settings = {ASSET_TAGS = (); }; };
+		F43E12971BC429A400BF062A /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43E12961BC429A400BF062A /* TagLib.framework */; };
+		F43E12981BC429AD00BF062A /* TagLib.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F43E12961BC429A400BF062A /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F42913B51BBE61810027FC28 /* CopyFiles */ = {
+		F43E12941BC4293100BF062A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F43E12981BC429AD00BF062A /* TagLib.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F42913BF1BBE62C40027FC28 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/ConverterWorkspace-ahskqvxvvbdmkyerjdggslcbhfvn/Build/Products/Debug/TagLib.framework"; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
+		F43E12961BC429A400BF062A /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/ConverterWorkspace-ahskqvxvvbdmkyerjdggslcbhfvn/Build/Products/Release/TagLib.framework"; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
 		F4C0FA771BBD47F900E0AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F42913C01BBE62C40027FC28 /* TagLib.framework in Frameworks */,
+				F43E12971BC429A400BF062A /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +55,7 @@
 		F4C0FA681BBD47F900E0AD6C = {
 			isa = PBXGroup;
 			children = (
-				F42913BF1BBE62C40027FC28 /* TagLib.framework */,
+				F43E12961BC429A400BF062A /* TagLib.framework */,
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 			);
@@ -111,8 +113,7 @@
 				F4C0FA6D1BBD47F900E0AD6C /* Sources */,
 				F4C0FA6E1BBD47F900E0AD6C /* Frameworks */,
 				F4C0FA6F1BBD47F900E0AD6C /* Headers */,
-				F4C0FA701BBD47F900E0AD6C /* Resources */,
-				F42913B51BBE61810027FC28 /* CopyFiles */,
+				F43E12941BC4293100BF062A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -154,16 +155,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		F4C0FA701BBD47F900E0AD6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4C0FA6D1BBD47F900E0AD6C /* Sources */ = {
