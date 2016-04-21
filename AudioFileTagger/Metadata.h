@@ -22,6 +22,6 @@
 @property (nonatomic, strong) NSNumber *year;
 @property (nonatomic, strong) NSNumber *length;
 
-- (BOOL)isValid; 
+@property (NS_NONATOMIC_IOSONLY, getter=isValid, readonly) BOOL valid; 
 
 @end

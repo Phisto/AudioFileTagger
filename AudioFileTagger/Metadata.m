@@ -36,7 +36,7 @@
 
 - (NSString *)description; {
     
-    return [NSString stringWithFormat:@"Description:\n title %@\n - \n artist %@\n - \n albumName %@\n - \n composer %@\n - \n comment %@\n - \n genre %@\n - \n lyrics %@\n - \n artwork %@\n - \n trackNumber %lu\n - \n year %lu\n - \n length %lu\n", self.title, self.artist, self.albumName, self.composer, self.comment, self.genre, self.lyrics, self.artwork, [self.trackNumber integerValue], [self.year integerValue], [self.length integerValue]];
+    return [NSString stringWithFormat:@"Description:\n title %@\n - \n artist %@\n - \n albumName %@\n - \n composer %@\n - \n comment %@\n - \n genre %@\n - \n lyrics %@\n - \n artwork %@\n - \n trackNumber %lu\n - \n year %lu\n - \n length %lu\n", self.title, self.artist, self.albumName, self.composer, self.comment, self.genre, self.lyrics, self.artwork, (self.trackNumber).integerValue, (self.year).integerValue, (self.length).integerValue];
 }
 
 @end

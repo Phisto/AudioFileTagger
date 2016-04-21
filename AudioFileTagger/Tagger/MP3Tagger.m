@@ -54,7 +54,7 @@
     
     if (self.metadata.isValid) {
         
-        TagLib::MPEG::File f([[self.file path] fileSystemRepresentation]);
+        TagLib::MPEG::File f((self.file).path.fileSystemRepresentation);
         (TagLib::ID3v2::FrameFactory::instance())->setDefaultTextEncoding(TagLib::String::UTF8);
         
         NSData  *imgData;
@@ -62,23 +62,23 @@
         
         if (self.metadata.title != nil) {
             
-            f.tag()->setTitle(TagLib::String([self.metadata.title UTF8String], TagLib::String::UTF8));
+            f.tag()->setTitle(TagLib::String((self.metadata.title).UTF8String, TagLib::String::UTF8));
         }
         
         if (self.metadata.artist != nil) {
             
-            f.tag()->setArtist(TagLib::String([self.metadata.artist UTF8String], TagLib::String::UTF8));
+            f.tag()->setArtist(TagLib::String((self.metadata.artist).UTF8String, TagLib::String::UTF8));
         }
         
         if (self.metadata.albumName != nil) {
             
-            f.tag()->setAlbum(TagLib::String([self.metadata.albumName UTF8String], TagLib::String::UTF8));
+            f.tag()->setAlbum(TagLib::String((self.metadata.albumName).UTF8String, TagLib::String::UTF8));
         }
         
         if(self.metadata.composer != nil) {
             
             frame = new TagLib::ID3v2::TextIdentificationFrame("TCOM", TagLib::String::Latin1);
-            frame->setText(TagLib::String([self.metadata.composer UTF8String], TagLib::String::UTF8));
+            frame->setText(TagLib::String((self.metadata.composer).UTF8String, TagLib::String::UTF8));
             f.ID3v2Tag()->addFrame(frame);
         }
         
@@ -86,37 +86,39 @@
             
             TagLib::ID3v2::CommentsFrame *commentFrame = new TagLib::ID3v2::CommentsFrame(TagLib::String::UTF8);
             commentFrame->setLanguage("eng");
-            commentFrame->setText(TagLib::String([self.metadata.comment UTF8String], TagLib::String::UTF8));
+            commentFrame->setText(TagLib::String((self.metadata.comment).UTF8String, TagLib::String::UTF8));
             f.ID3v2Tag()->addFrame(commentFrame);
         }
         
         if (self.metadata.year != nil) {
             
-            f.tag()->setYear([self.metadata.year intValue]);
+            f.tag()->setYear((self.metadata.year).intValue);
         }
         
         if (self.metadata.genre != nil) {
             
-            f.tag()->setGenre(TagLib::String([self.metadata.genre UTF8String], TagLib::String::UTF8));
+            f.tag()->setGenre(TagLib::String((self.metadata.genre).UTF8String, TagLib::String::UTF8));
         }
         
         if (self.metadata.trackNumber != nil) {
             
-            f.tag()->setTrack([self.metadata.trackNumber intValue]);
+            f.tag()->setTrack((self.metadata.trackNumber).intValue);
         }
         
         if (self.metadata.length != nil) {
             
             frame = new TagLib::ID3v2::TextIdentificationFrame("TLEN", TagLib::String::Latin1);
-            frame->setText(TagLib::String([[NSString stringWithFormat:@"%u", 1000 * [self.metadata.length intValue]] UTF8String], TagLib::String::UTF8));
-            f.ID3v2Tag()->addFrame(frame);
+            if (frame != NULL) {
+                frame->setText(TagLib::String([NSString stringWithFormat:@"%u", 1000 * (self.metadata.length).intValue].UTF8String, TagLib::String::UTF8));
+                f.ID3v2Tag()->addFrame(frame);
+            }
         }
         
         if (self.metadata.lyrics != nil) {
         
             TagLib::ID3v2::UnsynchronizedLyricsFrame *lyrframe = new TagLib::ID3v2::UnsynchronizedLyricsFrame(TagLib::String::UTF8);
             lyrframe-> setLanguage("eng");
-            lyrframe-> setText(TagLib::String([self.metadata.lyrics UTF8String], TagLib::String::UTF8));
+            lyrframe-> setText(TagLib::String((self.metadata.lyrics).UTF8String, TagLib::String::UTF8));
             f.ID3v2Tag()->addFrame(lyrframe);
         }
         
@@ -125,7 +127,7 @@
             imgData			= getPNGDataForImage(self.metadata.artwork);
             TagLib::ID3v2::AttachedPictureFrame *pictureFrame = new TagLib::ID3v2::AttachedPictureFrame();
             pictureFrame->setMimeType(TagLib::String("image/png", TagLib::String::Latin1));
-            pictureFrame->setPicture(TagLib::ByteVector((const char *)[imgData bytes], (uint)[imgData length]));
+            pictureFrame->setPicture(TagLib::ByteVector((const char *)imgData.bytes, (uint)imgData.length));
             f.ID3v2Tag()->addFrame(pictureFrame);
         }
         
@@ -149,7 +151,7 @@ NSData * getBitmapDataForImage(NSImage *image, NSBitmapImageFileType type) {
     NSBitmapImageRep	*bitmapRep					= nil;
     NSSize				size;
     
-    enumerator = [[image representations] objectEnumerator];
+    enumerator = [image.representations objectEnumerator];
     while((currentRepresentation = [enumerator nextObject])) {
         if([currentRepresentation isKindOfClass:[NSBitmapImageRep class]]) {
             bitmapRep = (NSBitmapImageRep *)currentRepresentation;
@@ -158,7 +160,7 @@ NSData * getBitmapDataForImage(NSImage *image, NSBitmapImageFileType type) {
     
     // Create a bitmap representation if one doesn't exist
     if(nil == bitmapRep) {
-        size = [image size];
+        size = image.size;
         [image lockFocus];
         bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0, 0, size.width, size.height)];
         [image unlockFocus];

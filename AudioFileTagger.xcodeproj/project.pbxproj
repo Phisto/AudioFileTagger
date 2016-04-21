@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F402AC451C9F15190061F6AA /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F402AC421C9F14F00061F6AA /* TagLib.framework */; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; settings = {ASSET_TAGS = (); }; };
-		F43E12971BC429A400BF062A /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43E12961BC429A400BF062A /* TagLib.framework */; };
-		F43E12981BC429AD00BF062A /* TagLib.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F43E12961BC429A400BF062A /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; settings = {ASSET_TAGS = (); }; };
+		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
+		F4C2A09E1CA2225300777E10 /* TagLib.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F402AC421C9F14F00061F6AA /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F402AC411C9F14F00061F6AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F402AC3D1C9F14F00061F6AA /* TagLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = "TagLib Framework";
+		};
+		F402AC431C9F14FA0061F6AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F402AC3D1C9F14F00061F6AA /* TagLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = "TagLib Framework";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F43E12941BC4293100BF062A /* CopyFiles */ = {
@@ -23,16 +40,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F43E12981BC429AD00BF062A /* TagLib.framework in CopyFiles */,
+				F4C2A09E1CA2225300777E10 /* TagLib.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F402AC3D1C9F14F00061F6AA /* TagLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TagLib.xcodeproj; path = ../TagLib/TagLib.xcodeproj; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
-		F43E12961BC429A400BF062A /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/ConverterWorkspace-ahskqvxvvbdmkyerjdggslcbhfvn/Build/Products/Release/TagLib.framework"; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
 		F4C0FA771BBD47F900E0AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,17 +62,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43E12971BC429A400BF062A /* TagLib.framework in Frameworks */,
+				F402AC451C9F15190061F6AA /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F402AC3E1C9F14F00061F6AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F402AC421C9F14F00061F6AA /* TagLib.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F4C0FA681BBD47F900E0AD6C = {
 			isa = PBXGroup;
 			children = (
-				F43E12961BC429A400BF062A /* TagLib.framework */,
+				F402AC3D1C9F14F00061F6AA /* TagLib.xcodeproj */,
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 			);
@@ -118,6 +143,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F402AC441C9F14FA0061F6AA /* PBXTargetDependency */,
 			);
 			name = AudioFileTagger;
 			productName = AudioFileTagger;
@@ -149,12 +175,28 @@
 			mainGroup = F4C0FA681BBD47F900E0AD6C;
 			productRefGroup = F4C0FA731BBD47F900E0AD6C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F402AC3E1C9F14F00061F6AA /* Products */;
+					ProjectRef = F402AC3D1C9F14F00061F6AA /* TagLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F402AC421C9F14F00061F6AA /* TagLib.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TagLib.framework;
+			remoteRef = F402AC411C9F14F00061F6AA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4C0FA6D1BBD47F900E0AD6C /* Sources */ = {
@@ -167,6 +209,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F402AC441C9F14FA0061F6AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TagLib Framework";
+			targetProxy = F402AC431C9F14FA0061F6AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F4C0FA781BBD47F900E0AD6C /* Debug */ = {
@@ -268,10 +318,13 @@
 					"$(PROJECT_DIR)/AudioFileTagger",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AudioFileTagger/TagLib.framework/Versions/A/Headers";
 				INFOPLIST_FILE = AudioFileTagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -296,10 +349,13 @@
 					"$(PROJECT_DIR)/AudioFileTagger",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AudioFileTagger/TagLib.framework/Versions/A/Headers";
 				INFOPLIST_FILE = AudioFileTagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
