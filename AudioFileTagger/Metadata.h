@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+/**
+ 
+ */
 @interface Metadata : NSObject
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *albumName;
 @property (nonatomic, strong) NSString *composer;
-@property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) NSString *genre;
-@property (nonatomic, strong) NSString *lyrics;
 @property (nonatomic, strong) NSImage *artwork;
 @property (nonatomic, strong) NSNumber *trackNumber;
 @property (nonatomic, strong) NSNumber *year;
-@property (nonatomic, strong) NSNumber *length;
-
-@property (NS_NONATOMIC_IOSONLY, getter=isValid, readonly) BOOL valid; 
 
 @end
+NS_ASSUME_NONNULL_END

@@ -15,5 +15,5 @@ FOUNDATION_EXPORT double AudioFileTaggerVersionNumber;
 FOUNDATION_EXPORT const unsigned char AudioFileTaggerVersionString[];
 
 // Public Header
-#import "MP3Tagger.h"
-#import "Metadata.h"
+#import <AudioFileTagger/MP3Tagger.h>
+#import <AudioFileTagger/Metadata.h>

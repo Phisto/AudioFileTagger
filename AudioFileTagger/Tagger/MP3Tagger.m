@@ -7,166 +7,258 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "MP3Tagger.h"
+#import "NSImage+PNGData.h"
 
-#include <taglib/mpegfile.h>				// TagLib::MPEG::File
-#include <taglib/tag.h>						// TagLib::Tag
-#include <taglib/tstring.h>					// TagLib::String
-#include <taglib/tbytevector.h>				// TagLib::ByteVector
-#include <taglib/textidentificationframe.h>	// TagLib::ID3V2::TextIdentificationFrame
-#include <taglib/uniquefileidentifierframe.h> // TagLib::ID3V2::UniqueFileIdentifierFrame
-#include <taglib/attachedpictureframe.h>	// TagLib::ID3V2::AttachedPictureFrame
-#include <taglib/id3v2tag.h>				// TagLib::ID3V2::Tag
-#include <taglib/commentsframe.h>			// TagLib::ID3V2::CommentsFrame
-#include <taglib/unsynchronizedlyricsframe.h>// TagLib::ID3v2::UnsynchronizedLyricsFrame
+#import "fileref.h"
+#import "fileref.h"
+#import "mpegfile.h"				// TagLib::MPEG::File
+#import "tag.h"						// TagLib::Tag
+#import "tstring.h"					// TagLib::String
+#import "tbytevector.h"				// TagLib::ByteVector
+#import "attachedpictureframe.h"	// TagLib::ID3V2::AttachedPictureFrame
+#import "id3v2tag.h"				// TagLib::ID3V2::Tag
+
+
+// $(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)
 
 @interface MP3Tagger (/* Private */)
-
+/**
+ 
+ */
 @property (nonatomic, strong) NSURL *file;
+/**
+ The metadata for a audio file.
+ */
+@property (nonatomic, strong) Metadata *metadata;
 
 @end
 
 @implementation MP3Tagger
 
-+ (instancetype)taggerForFile:(NSURL *)file {
++ (nullable instancetype)taggerForFile:(NSURL *)file {
     
     return [[[self class] alloc] initWithFile:file];
 }
 
-- (instancetype)initWithFile:(NSURL *)file {
+- (nullable instancetype)initWithFile:(NSURL *)file {
+    
+    if (!file) return nil;
     
     self = [super init];
     
-    if (self != nil & file != nil) {
+    if (self) {
         
         _file = file;
-        
-    } else {
-        
-        return nil;
+        Metadata *meta = [self readMetadata];
+        if (!meta) {
+            return nil;
+        }
+        _metadata = meta;
     }
     
     return self;
 }
 
-- (BOOL)tag {
+- (BOOL)tagFile:(NSURL *)file {
     
-    if (self.metadata.isValid) {
+    @try {
         
-        TagLib::MPEG::File f((self.file).path.fileSystemRepresentation);
-        (TagLib::ID3v2::FrameFactory::instance())->setDefaultTextEncoding(TagLib::String::UTF8);
+        TagLib::MPEG::File f(file.path.fileSystemRepresentation);
         
-        NSData  *imgData;
-        TagLib::ID3v2::TextIdentificationFrame *frame = NULL;
-        
-        if (self.metadata.title != nil) {
+        if (f.tag() != NULL) {
+         
+            if (self.metadata.title) {
+                
+                f.tag()->setTitle(TagLib::String((self.metadata.title).UTF8String, TagLib::String::UTF8));
+            }
             
-            f.tag()->setTitle(TagLib::String((self.metadata.title).UTF8String, TagLib::String::UTF8));
+            if (self.metadata.artist) {
+                
+                f.tag()->setArtist(TagLib::String((self.metadata.artist).UTF8String, TagLib::String::UTF8));
+            }
+            
+            if (self.metadata.albumName) {
+                
+                f.tag()->setAlbum(TagLib::String((self.metadata.albumName).UTF8String, TagLib::String::UTF8));
+            }
+            
+            if (self.metadata.year) {
+                
+                f.tag()->setYear((self.metadata.year).intValue);
+            }
+            
+            if (self.metadata.genre) {
+                
+                f.tag()->setGenre(TagLib::String((self.metadata.genre).UTF8String, TagLib::String::UTF8));
+            }
+            
+            if (self.metadata.trackNumber) {
+                
+                f.tag()->setTrack((self.metadata.trackNumber).intValue);
+            }
+            
+            if (self.metadata.artwork) {
+                
+                NSData *imgData	= [self.metadata.artwork pngData];
+                if (imgData) {
+                    
+                    TagLib::ID3v2::AttachedPictureFrame *pictureFrame = new TagLib::ID3v2::AttachedPictureFrame();
+                    
+                    if (pictureFrame != NULL) {
+                     
+                        pictureFrame->setMimeType(TagLib::String("image/png", TagLib::String::UTF8));
+                        pictureFrame->setPicture(TagLib::ByteVector((const char *)imgData.bytes, (uint)imgData.length));
+                        if (f.ID3v2Tag() != NULL) f.ID3v2Tag()->addFrame(pictureFrame);
+                    }
+                }
+            }
+            
+            BOOL successSave = f.save();
+            return successSave;
+        }
+        else {
+            // there are no tags, so we can say we wrote them sucessfully :)
+            return YES;
+        }
+    }
+    @catch (NSException *exception) {
+        
+        NSLog(@"Writing tags failed with exception: %@", exception);
+    }
+    
+    @catch (...) {
+        
+        NSLog(@"Writing tags failed with unknown exception.");
+    }
+    
+    return NO;
+}
+
+- (Metadata *)readMetadata {
+    
+    Metadata *theMetadata = [[Metadata alloc] init];
+    
+    AVAsset *asset = [AVURLAsset URLAssetWithURL:self.file options:nil];
+    
+    BOOL someMetadate = NO;
+    
+    /************************************* title ******************************************/
+    
+    NSArray *titles = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                     withKey:AVMetadataCommonKeyTitle
+                                                    keySpace:AVMetadataKeySpaceCommon];
+    AVMetadataItem *title = nil;
+    if (titles.count > 0) {
+        title = [titles objectAtIndex:0];
+        theMetadata.title = (NSString *)title.value;
+        someMetadate = YES;
+    }
+    
+    /************************************* artist ******************************************/
+    
+    NSArray *artists = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                      withKey:AVMetadataCommonKeyArtist
+                                                     keySpace:AVMetadataKeySpaceCommon];
+    AVMetadataItem *artist = nil;
+    if (artists.count > 0) {
+        artist = [artists objectAtIndex:0];
+        theMetadata.artist = (NSString *)artist.value;
+        someMetadate = YES;
+    }
+    
+    /************************************* albumNames ******************************************/
+    
+    NSArray *albumNames = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                         withKey:AVMetadataCommonKeyAlbumName
+                                                        keySpace:AVMetadataKeySpaceCommon];
+    AVMetadataItem *albumName = nil;
+    if (albumNames.count > 0) {
+        albumName = [albumNames objectAtIndex:0];
+        theMetadata.albumName = (NSString *)albumName.value;
+        someMetadate = YES;
+    }
+    
+    /*********************** track number, Genre, Composer, Comment ****************************/
+    
+    for (AVMetadataItem *obj in asset.metadata) {
+        
+        //Track Number
+        if ([obj.key isEqual:@"com.apple.iTunes.iTunes_CDDB_TrackNumber"]) {
+            
+            NSInteger trkN = [(NSString *)obj.value integerValue];
+            theMetadata.trackNumber = [NSNumber numberWithInteger:trkN];
+            someMetadate = YES;
         }
         
-        if (self.metadata.artist != nil) {
+        // (User set)Genre
+        if ([obj.identifier isEqualToString:@"itsk/%A9gen"]) {
             
-            f.tag()->setArtist(TagLib::String((self.metadata.artist).UTF8String, TagLib::String::UTF8));
+            theMetadata.genre = (NSString *)obj.value;
+            someMetadate = YES;
         }
         
-        if (self.metadata.albumName != nil) {
+        // Composer
+        if ([obj.identifier isEqualToString:@"itsk/%A9wrt"]) {
             
-            f.tag()->setAlbum(TagLib::String((self.metadata.albumName).UTF8String, TagLib::String::UTF8));
+            theMetadata.composer = (NSString *)obj.value;
+            someMetadate = YES;
         }
+    }
+    
+    /******************************************** year ********************************************/
+    
+    NSArray *years = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                    withKey:AVMetadataiTunesMetadataKeyReleaseDate
+                                                   keySpace:AVMetadataKeySpaceiTunes];
+    AVMetadataItem *year = nil;
+    if (years.count > 0) {
+        year = [years objectAtIndex:0];
+        theMetadata.year = [NSNumber numberWithInteger:[(NSString *)year.value integerValue]];
+        someMetadate = YES;
+    }
+    
+    /********************************************** genre ********************************************/
+    
+    NSArray *genres = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                     withKey:AVMetadataiTunesMetadataKeyUserGenre
+                                                    keySpace:AVMetadataKeySpaceiTunes];
+    AVMetadataItem *genre = nil;
+    if (genres.count > 0) {
+        genre = [genres objectAtIndex:0];
+        theMetadata.genre = (NSString *)genre.value;
+        someMetadate = YES;
+    }
+    
+    /******************************************** artwork ********************************************/
+    
+    [asset loadValuesAsynchronouslyForKeys:@[@"commonMetadata"] completionHandler:^{
+        NSArray *artworks = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
+                                                           withKey:AVMetadataCommonKeyArtwork
+                                                          keySpace:AVMetadataKeySpaceCommon];
         
-        if(self.metadata.composer != nil) {
-            
-            frame = new TagLib::ID3v2::TextIdentificationFrame("TCOM", TagLib::String::Latin1);
-            frame->setText(TagLib::String((self.metadata.composer).UTF8String, TagLib::String::UTF8));
-            f.ID3v2Tag()->addFrame(frame);
-        }
-        
-        if (self.metadata.comment != nil) {
-            
-            TagLib::ID3v2::CommentsFrame *commentFrame = new TagLib::ID3v2::CommentsFrame(TagLib::String::UTF8);
-            commentFrame->setLanguage("eng");
-            commentFrame->setText(TagLib::String((self.metadata.comment).UTF8String, TagLib::String::UTF8));
-            f.ID3v2Tag()->addFrame(commentFrame);
-        }
-        
-        if (self.metadata.year != nil) {
-            
-            f.tag()->setYear((self.metadata.year).intValue);
-        }
-        
-        if (self.metadata.genre != nil) {
-            
-            f.tag()->setGenre(TagLib::String((self.metadata.genre).UTF8String, TagLib::String::UTF8));
-        }
-        
-        if (self.metadata.trackNumber != nil) {
-            
-            f.tag()->setTrack((self.metadata.trackNumber).intValue);
-        }
-        
-        if (self.metadata.length != nil) {
-            
-            frame = new TagLib::ID3v2::TextIdentificationFrame("TLEN", TagLib::String::Latin1);
-            if (frame != NULL) {
-                frame->setText(TagLib::String([NSString stringWithFormat:@"%u", 1000 * (self.metadata.length).intValue].UTF8String, TagLib::String::UTF8));
-                f.ID3v2Tag()->addFrame(frame);
+        NSImage *img = nil;
+        for (AVMetadataItem *item in artworks) {
+            if ([item.keySpace isEqualToString:AVMetadataKeySpaceID3]) {
+                NSDictionary *d = [item.value copyWithZone:nil];
+                img = [[NSImage alloc] initWithData:[d objectForKey:@"data"]];
+            } else if ([item.keySpace isEqualToString:AVMetadataKeySpaceiTunes]) {
+                img = [[NSImage alloc] initWithData:[item.value copyWithZone:nil]];
             }
         }
-        
-        if (self.metadata.lyrics != nil) {
-        
-            TagLib::ID3v2::UnsynchronizedLyricsFrame *lyrframe = new TagLib::ID3v2::UnsynchronizedLyricsFrame(TagLib::String::UTF8);
-            lyrframe-> setLanguage("eng");
-            lyrframe-> setText(TagLib::String((self.metadata.lyrics).UTF8String, TagLib::String::UTF8));
-            f.ID3v2Tag()->addFrame(lyrframe);
-        }
-        
-        if (self.metadata.artwork != nil) {
+        if (img) {
             
-            imgData			= getPNGDataForImage(self.metadata.artwork);
-            TagLib::ID3v2::AttachedPictureFrame *pictureFrame = new TagLib::ID3v2::AttachedPictureFrame();
-            pictureFrame->setMimeType(TagLib::String("image/png", TagLib::String::Latin1));
-            pictureFrame->setPicture(TagLib::ByteVector((const char *)imgData.bytes, (uint)imgData.length));
-            f.ID3v2Tag()->addFrame(pictureFrame);
+            theMetadata.artwork = img;
         }
-        
-        return f.save();
-        
-    } else {
-        
-        return NO;
-    }
+    }];
+    
+    /************************************************************************************************/
+    
+    // only return methadata if there is at least one field set...
+    return (someMetadate) ? theMetadata : nil;
 }
 
-NSData * getPNGDataForImage(NSImage *image) {
-    return getBitmapDataForImage(image, NSPNGFileType);
-}
-
-NSData * getBitmapDataForImage(NSImage *image, NSBitmapImageFileType type) {
-    NSCParameterAssert(nil != image);
-    
-    NSEnumerator		*enumerator					= nil;
-    NSImageRep			*currentRepresentation		= nil;
-    NSBitmapImageRep	*bitmapRep					= nil;
-    NSSize				size;
-    
-    enumerator = [image.representations objectEnumerator];
-    while((currentRepresentation = [enumerator nextObject])) {
-        if([currentRepresentation isKindOfClass:[NSBitmapImageRep class]]) {
-            bitmapRep = (NSBitmapImageRep *)currentRepresentation;
-        }
-    }
-    
-    // Create a bitmap representation if one doesn't exist
-    if(nil == bitmapRep) {
-        size = image.size;
-        [image lockFocus];
-        bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0, 0, size.width, size.height)];
-        [image unlockFocus];
-    }
-    
-    return [bitmapRep representationUsingType:type properties:@{}];
-}
-
+#pragma mark -
 @end

@@ -10,12 +10,20 @@
 
 #import "Metadata.h"
 
+NS_ASSUME_NONNULL_BEGIN
+/**
+ 
+ */
 @interface MP3Tagger : NSObject
-
-@property (nonatomic, strong) Metadata *metadata;
-
-+ (instancetype)taggerForFile:(NSURL *)file;
-
-- (BOOL)tag;
+/**
+ @param file
+ */
++ (nullable instancetype)taggerForFile:(NSURL *)file;
+/**
+ @param file
+ @return
+ */
+- (BOOL)tagFile:(NSURL *)file;
 
 @end
+NS_ASSUME_NONNULL_END
