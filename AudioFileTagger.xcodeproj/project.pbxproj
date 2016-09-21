@@ -112,9 +112,6 @@
 		F408FEDC1D526F6500440412 /* xmproperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F408FE731D526F6500440412 /* xmproperties.h */; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
-		F44A327F1D8F4B8700947705 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44A32741D8F495E00947705 /* AVFoundation.framework */; };
-		F44A32801D8F4BBF00947705 /* libtag.1.16.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E5A7FA1D475CF800101FEF /* libtag.1.16.0.dylib */; };
-		F44A32821D8F4BD700947705 /* libtag.1.16.0.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F4E5A7FA1D475CF800101FEF /* libtag.1.16.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,6 +119,9 @@
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
 		F4E8DB1F1D5897A8005D5D75 /* NSImage+PNGData.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */; };
 		F4E8DB201D5897A8005D5D75 /* NSImage+PNGData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */; };
+		F4ED6AA51D8F8003001DB076 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */; };
+		F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */; };
+		F4ED6ABC1D8F8112001DB076 /* TagLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,16 +132,37 @@
 			remoteGlobalIDString = F4C0FA711BBD47F900E0AD6C;
 			remoteInfo = AudioFileTagger;
 		};
+		F4ED6A9F1D8F7FE7001DB076 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = "TagLib Framework";
+		};
+		F4ED6AA11D8F7FE7001DB076 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4ED6A8C1D8F7E1C001DB076;
+			remoteInfo = TagLibTests;
+		};
+		F4ED6AA31D8F7FF9001DB076 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = "TagLib Framework";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F44A32811D8F4BCE00947705 /* Copy Frameworks */ = {
+		F4ED6ABB1D8F80FE001DB076 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F44A32821D8F4BD700947705 /* libtag.1.16.0.dylib in Copy Frameworks */,
+				F4ED6ABC1D8F8112001DB076 /* TagLib.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +275,6 @@
 		F408FE731D526F6500440412 /* xmproperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xmproperties.h; path = header/xmproperties.h; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
-		F44A32741D8F495E00947705 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -266,6 +286,8 @@
 		F4E5A7FA1D475CF800101FEF /* libtag.1.16.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libtag.1.16.0.dylib; sourceTree = "<group>"; };
 		F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+PNGData.h"; sourceTree = "<group>"; };
 		F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+PNGData.m"; sourceTree = "<group>"; };
+		F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TagLib.xcodeproj; path = ../TagLib/TagLib.xcodeproj; sourceTree = "<group>"; };
+		F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,8 +303,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44A32801D8F4BBF00947705 /* libtag.1.16.0.dylib in Frameworks */,
-				F44A327F1D8F4B8700947705 /* AVFoundation.framework in Frameworks */,
+				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
+				F4ED6AA51D8F8003001DB076 /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +318,6 @@
 				F42913C91BBE7A1B0027FC28 /* Metadata.m */,
 			);
 			name = Enities;
-			sourceTree = "<group>";
-		};
-		F44A32731D8F495D00947705 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F44A32741D8F495E00947705 /* AVFoundation.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */ = {
@@ -321,7 +335,8 @@
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
-				F44A32731D8F495D00947705 /* Frameworks */,
+				F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */,
+				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -477,6 +492,23 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		F4ED6A9B1D8F7FE7001DB076 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */,
+				F4ED6AA21D8F7FE7001DB076 /* TagLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -622,11 +654,13 @@
 				F4C0FA6D1BBD47F900E0AD6C /* Sources */,
 				F4C0FA6E1BBD47F900E0AD6C /* Frameworks */,
 				F4C0FA6F1BBD47F900E0AD6C /* Headers */,
-				F44A32811D8F4BCE00947705 /* Copy Frameworks */,
+				F4ED6A991D8F7E86001DB076 /* Increment Build Number */,
+				F4ED6ABB1D8F80FE001DB076 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F4ED6AA41D8F7FF9001DB076 /* PBXTargetDependency */,
 			);
 			name = AudioFileTagger;
 			productName = AudioFileTagger;
@@ -662,6 +696,12 @@
 			mainGroup = F4C0FA681BBD47F900E0AD6C;
 			productRefGroup = F4C0FA731BBD47F900E0AD6C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F4ED6A9B1D8F7FE7001DB076 /* Products */;
+					ProjectRef = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */,
@@ -669,6 +709,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TagLib.framework;
+			remoteRef = F4ED6A9F1D8F7FE7001DB076 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F4ED6AA21D8F7FE7001DB076 /* TagLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TagLibTests.xctest;
+			remoteRef = F4ED6AA11D8F7FE7001DB076 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F44E54581D5DE11D00B41FCE /* Resources */ = {
@@ -679,6 +736,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F4ED6A991D8F7E86001DB076 /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F44E54561D5DE11D00B41FCE /* Sources */ = {
@@ -706,6 +780,11 @@
 			isa = PBXTargetDependency;
 			target = F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */;
 			targetProxy = F44E54601D5DE11D00B41FCE /* PBXContainerItemProxy */;
+		};
+		F4ED6AA41D8F7FF9001DB076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TagLib Framework";
+			targetProxy = F4ED6AA31D8F7FF9001DB076 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
