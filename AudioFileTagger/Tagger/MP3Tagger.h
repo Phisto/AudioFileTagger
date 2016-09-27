@@ -1,19 +1,32 @@
-//
-//  MP3Tagger.h
-//  AudioFileTagger
-//
-//  Created by Simon Gaus on 01.10.15.
-//  Copyright © 2015 Simon Gaus. All rights reserved.
-//
+/*
+ *  MP3Tagger.h
+ *  AudioFileTagger
+ *
+ *  Copyright © 2015-2016 Simon Gaus <simon.cay.gaus@gmail.com>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
 
 #import <Foundation/Foundation.h>
 
-#import "Metadata.h"
-
-NS_ASSUME_NONNULL_BEGIN
 /**
  
  */
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MP3Tagger : NSObject
 /**
  @param file

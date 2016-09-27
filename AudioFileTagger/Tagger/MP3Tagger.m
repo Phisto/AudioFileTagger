@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "MP3Tagger.h"
+#import "Metadata.h"
 #import "NSImage+PNGData.h"
 
 #import "fileref.h"

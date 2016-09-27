@@ -8,15 +8,24 @@
 
 #import <Cocoa/Cocoa.h>
 
-NS_ASSUME_NONNULL_BEGIN
 /**
  
+ The PNGData categorie adds the capability to get PNG data from an image to the NSImage class.
+ 
  */
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSImage (PNGData)
 /**
- @return
+ 
+ 
+ 
+ @return The png data representation of the receiver, or nil.
+ 
  */
 - (nullable NSData *)pngData;
+
 
 @end
 NS_ASSUME_NONNULL_END
