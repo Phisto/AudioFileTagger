@@ -77,19 +77,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The size in bytes of this media item.
  */
-@property (nullable, nonatomic, readwrite) NSUInteger size;
+@property (nonatomic, readwrite) NSUInteger size;
 /**
  The length of this media item in milliseconds.
  */
-@property (nullable, nonatomic, readwrite) NSUInteger totalTime;
+@property (nonatomic, readwrite) NSUInteger totalTime;
 /**
  The bitrate of this media item in kbps.
  */
-@property (nullable, nonatomic, readwrite) NSUInteger bitrate;
+@property (nonatomic, readwrite) NSUInteger bitrate;
 /**
  The sample rate of this media item in samples per second.
  */
-@property (nullable, nonatomic, readwrite) NSUInteger sampleRate;
+@property (nonatomic, readwrite) NSUInteger sampleRate;
 
 @end
 NS_ASSUME_NONNULL_END

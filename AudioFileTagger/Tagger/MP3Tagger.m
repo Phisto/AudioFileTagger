@@ -23,25 +23,27 @@
 #import "id3v2tag.h"				// TagLib::ID3V2::Tag
 
 @interface MP3Tagger (/* Private */)
-/**
- 
- */
+
 @property (nonatomic, strong) NSURL *file;
-/**
- 
- The metadata for a audio file.
- 
- */
 @property (nonatomic, strong) Metadata *metadata;
 
 @end
 
+
 @implementation MP3Tagger
+
 
 + (nullable instancetype)taggerFromFile:(NSURL *)fileURL readAudioProperties:(BOOL)readAudioProperties {
     
     return [[[self class] alloc] initWithFile:fileURL];
 }
+
+
++ (nullable instancetype)taggerWithMetadata:(Metadata *)metadata {
+
+    return [[[self class] alloc] initWithMetadata:metadata];
+}
+
 
 - (nullable instancetype)initWithFile:(NSURL *)fileURL {
     
@@ -60,6 +62,19 @@
     
     return self;
 }
+
+- (nullable instancetype)initWithMetadata:(Metadata *)metadata {
+    
+    if (!metadata) return nil;
+    self = [super init];
+    if (self) {
+
+        _metadata = metadata;
+    }
+    
+    return self;
+}
+
 
 - (BOOL)tagFile:(NSURL *)file {
     
@@ -135,6 +150,7 @@
     
     return NO;
 }
+
 
 - (Metadata *)readMetadata {
     
@@ -258,6 +274,7 @@
     // only return methadata if there is at least one field set...
     return (someMetadate) ? theMetadata : nil;
 }
+
 
 #pragma mark -
 @end

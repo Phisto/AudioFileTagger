@@ -48,9 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///-----------------
 
 /**
-
+ The metadata associated with the tagger.
 */
-
 @property (nonatomic, readonly) Metadata *metadata;
 
 #pragma mark - Inititalization
@@ -60,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  
- Creates an MP3Tagger object initialized with the tags of the given file.
+ Creates an MP3Tagger object initialized with the metadata of the given file.
  
  Example usage:
     
@@ -74,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
     // do stuff ...
  
  
- @param fileURL The file from which to read the tags and properties.
+ @param fileURL The file from which to read the metadata.
  
  @param readAudioProperties Indicates if the tagger should be initialized with the files audio properties (lenght, samplerate, bitrate etc.) or just with the tags.
  
@@ -82,6 +81,28 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 + (nullable instancetype)taggerFromFile:(NSURL *)fileURL readAudioProperties:(BOOL)readAudioProperties;
+/**
+ 
+ Creates an MP3Tagger object initialized with the given metadata.
+ 
+ Example usage:
+ 
+    Metadata *metatdata = ...
+ 
+    MP3Tagger *tagger = [MP3Tagger taggerWithMetadata:metatdata];
+    if (!tagger) {
+        // handle failure...
+    }
+ 
+    // do stuff ...
+ 
+ 
+ @param metadata The metadata to use for tagging.
+ 
+ @return An MP3Tagger object, or nil.
+ 
+ */
++ (nullable instancetype)taggerWithMetadata:(Metadata *)metadata;
 
 #pragma mark - Methodes
 ///---------------
