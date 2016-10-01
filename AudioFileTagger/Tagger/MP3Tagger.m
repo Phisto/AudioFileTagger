@@ -22,16 +22,15 @@
 #import "attachedpictureframe.h"	// TagLib::ID3V2::AttachedPictureFrame
 #import "id3v2tag.h"				// TagLib::ID3V2::Tag
 
-
-// $(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)
-
 @interface MP3Tagger (/* Private */)
 /**
  
  */
 @property (nonatomic, strong) NSURL *file;
 /**
+ 
  The metadata for a audio file.
+ 
  */
 @property (nonatomic, strong) Metadata *metadata;
 
@@ -39,20 +38,19 @@
 
 @implementation MP3Tagger
 
-+ (nullable instancetype)taggerForFile:(NSURL *)file {
++ (nullable instancetype)taggerFromFile:(NSURL *)fileURL readAudioProperties:(BOOL)readAudioProperties {
     
-    return [[[self class] alloc] initWithFile:file];
+    return [[[self class] alloc] initWithFile:fileURL];
 }
 
-- (nullable instancetype)initWithFile:(NSURL *)file {
+- (nullable instancetype)initWithFile:(NSURL *)fileURL {
     
-    if (!file) return nil;
+    if (!fileURL) return nil;
     
     self = [super init];
-    
     if (self) {
         
-        _file = file;
+        _file = fileURL;
         Metadata *meta = [self readMetadata];
         if (!meta) {
             return nil;
@@ -69,7 +67,7 @@
         
         TagLib::MPEG::File f(file.path.fileSystemRepresentation);
         
-        if (f.tag() != NULL) {
+        if (f.tag() != NULL && self.metadata) {
          
             if (self.metadata.title) {
                 
@@ -151,7 +149,7 @@
     NSArray *titles = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                      withKey:AVMetadataCommonKeyTitle
                                                     keySpace:AVMetadataKeySpaceCommon];
-    AVMetadataItem *title = nil;
+    AVMetadataItem *title;
     if (titles.count > 0) {
         title = [titles objectAtIndex:0];
         theMetadata.title = (NSString *)title.value;
@@ -163,7 +161,7 @@
     NSArray *artists = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                       withKey:AVMetadataCommonKeyArtist
                                                      keySpace:AVMetadataKeySpaceCommon];
-    AVMetadataItem *artist = nil;
+    AVMetadataItem *artist;
     if (artists.count > 0) {
         artist = [artists objectAtIndex:0];
         theMetadata.artist = (NSString *)artist.value;
@@ -175,7 +173,7 @@
     NSArray *albumNames = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                          withKey:AVMetadataCommonKeyAlbumName
                                                         keySpace:AVMetadataKeySpaceCommon];
-    AVMetadataItem *albumName = nil;
+    AVMetadataItem *albumName;
     if (albumNames.count > 0) {
         albumName = [albumNames objectAtIndex:0];
         theMetadata.albumName = (NSString *)albumName.value;
@@ -214,7 +212,7 @@
     NSArray *years = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                     withKey:AVMetadataiTunesMetadataKeyReleaseDate
                                                    keySpace:AVMetadataKeySpaceiTunes];
-    AVMetadataItem *year = nil;
+    AVMetadataItem *year;
     if (years.count > 0) {
         year = [years objectAtIndex:0];
         theMetadata.year = [NSNumber numberWithInteger:[(NSString *)year.value integerValue]];
@@ -226,7 +224,7 @@
     NSArray *genres = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                      withKey:AVMetadataiTunesMetadataKeyUserGenre
                                                     keySpace:AVMetadataKeySpaceiTunes];
-    AVMetadataItem *genre = nil;
+    AVMetadataItem *genre;
     if (genres.count > 0) {
         genre = [genres objectAtIndex:0];
         theMetadata.genre = (NSString *)genre.value;
@@ -240,7 +238,7 @@
                                                            withKey:AVMetadataCommonKeyArtwork
                                                           keySpace:AVMetadataKeySpaceCommon];
         
-        NSImage *img = nil;
+        NSImage *img;
         for (AVMetadataItem *item in artworks) {
             if ([item.keySpace isEqualToString:AVMetadataKeySpaceID3]) {
                 NSDictionary *d = [item.value copyWithZone:nil];

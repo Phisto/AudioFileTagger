@@ -17,20 +17,85 @@
 
 #import <Foundation/Foundation.h>
 
+@class Metadata;
+
 /**
+ 
+ An MP3Tagger object can tag audio files with ID3v2 tags.
+ 
+ Supported tags:
+ 
+ - title
+ - artist
+ - albumName
+ - year
+ - genre
+ - trackNumber
+ - artwork
+ 
+ ## Sandboxing Notes
+ This is NOT implemented in a sandboxing friendly manor, you need to take care of file access yourself.
  
  */
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MP3Tagger : NSObject
+
+#pragma mark - Properties
+///-----------------
+/// @name Properties
+///-----------------
+
 /**
- @param file
+
+*/
+
+@property (nonatomic, readonly) Metadata *metadata;
+
+#pragma mark - Inititalization
+///----------------------
+/// @name Inititalization
+///----------------------
+
+/**
+ 
+ Creates an MP3Tagger object initialized with the tags of the given file.
+ 
+ Example usage:
+    
+    NSURL *inputFileURL = ...
+ 
+    MP3Tagger *tagger = [MP3Tagger taggerForFile:inputFileURL];
+    if (!tagger) {
+        // handle failure...
+    }
+ 
+    // do stuff ...
+ 
+ 
+ @param fileURL The file from which to read the tags and properties.
+ 
+ @param readAudioProperties Indicates if the tagger should be initialized with the files audio properties (lenght, samplerate, bitrate etc.) or just with the tags.
+ 
+ @return An MP3Tagger object, or nil if the file coulden't be read or the files has no tags.
+ 
  */
-+ (nullable instancetype)taggerForFile:(NSURL *)file;
++ (nullable instancetype)taggerFromFile:(NSURL *)fileURL readAudioProperties:(BOOL)readAudioProperties;
+
+#pragma mark - Methodes
+///---------------
+/// @name Methodes
+///---------------
+
 /**
- @param file
- @return
+ 
+ Writes the tags to the specified file.
+ 
+ @param file The file to tag.
+ 
+ @return YES if the file was tagged successfully, otherwise NO.
+ 
  */
 - (BOOL)tagFile:(NSURL *)file;
 
