@@ -1,0 +1,3 @@
+module AudioFileTagger {
+    umbrella header "Headers/AudioFileTagger.h"
+}

@@ -23,6 +23,9 @@
 /* Begin PBXBuildFile section */
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
+		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
+		F43743481DA12B2E0042913F /* Don't Trust Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */; };
+		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +86,10 @@
 /* Begin PBXFileReference section */
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
+		F43743451DA113330042913F /* Black Barrels Waste -final.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Barrels Waste -final.m4a"; path = "test-files/Black Barrels Waste -final.m4a"; sourceTree = "<group>"; };
+		F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Don't Trust Me.mp3"; path = "test-files/Don't Trust Me.mp3"; sourceTree = "<group>"; };
+		F43743491DA13E090042913F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F447863B1DA39757009B4E15 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "Supporting Files/module.modulemap"; sourceTree = "<group>"; };
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
 				F4ED6AA51D8F8003001DB076 /* TagLib.framework in Frameworks */,
 			);
@@ -124,12 +132,30 @@
 				F42913C81BBE7A1B0027FC28 /* Metadata.h */,
 				F42913C91BBE7A1B0027FC28 /* Metadata.m */,
 			);
-			name = Enities;
+			path = Enities;
+			sourceTree = "<group>";
+		};
+		F43743431DA1131E0042913F /* test-files */ = {
+			isa = PBXGroup;
+			children = (
+				F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */,
+				F43743451DA113330042913F /* Black Barrels Waste -final.m4a */,
+			);
+			name = "test-files";
+			sourceTree = "<group>";
+		};
+		F447863A1DA39728009B4E15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F447863B1DA39757009B4E15 /* module.modulemap */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */ = {
 			isa = PBXGroup;
 			children = (
+				F43743431DA1131E0042913F /* test-files */,
 				F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */,
 				F44E545E1D5DE11D00B41FCE /* Info.plist */,
 			);
@@ -164,6 +190,7 @@
 				F4C0FA831BBD482200E0AD6C /* Tagger */,
 				F4033FBA1D5FC0C900FCB276 /* Enities */,
 				F4E8DB211D5897E1005D5D75 /* Categories */,
+				F447863A1DA39728009B4E15 /* Supporting Files */,
 			);
 			path = AudioFileTagger;
 			sourceTree = "<group>";
@@ -183,7 +210,7 @@
 				F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */,
 				F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */,
 			);
-			name = Categories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		F4ED6A9B1D8F7FE7001DB076 /* Products */ = {
@@ -198,6 +225,7 @@
 		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F43743491DA13E090042913F /* AudioToolbox.framework */,
 				F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -329,6 +357,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43743481DA12B2E0042913F /* Don't Trust Me.mp3 in Resources */,
+				F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +569,7 @@
 		F4C0FA7B1BBD47F900E0AD6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -564,6 +595,8 @@
 				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/Supporting Files/module.modulemap";
+				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -577,6 +610,7 @@
 		F4C0FA7C1BBD47F900E0AD6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -602,6 +636,8 @@
 				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/Supporting Files/module.modulemap";
+				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -631,6 +667,7 @@
 				F48DA4511D9B2CCA00070708 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4C0FA6C1BBD47F900E0AD6C /* Build configuration list for PBXProject "AudioFileTagger" */ = {
 			isa = XCConfigurationList;

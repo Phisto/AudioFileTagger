@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F44E54591D5DE11D00B41FCE"
+               BuildableName = "AudioFileTaggerTests.xctest"
+               BlueprintName = "AudioFileTaggerTests"
+               ReferencedContainer = "container:AudioFileTagger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F4C0FA711BBD47F900E0AD6C"
+            BuildableName = "AudioFileTagger.framework"
+            BlueprintName = "AudioFileTagger"
+            ReferencedContainer = "container:AudioFileTagger.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

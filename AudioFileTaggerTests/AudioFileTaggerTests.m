@@ -8,6 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
+#import <AudioFileTagger/AudioFileTagger.h>
+#import <AudioFileTagger/Metadata.h>
+
 @interface AudioFileTaggerTests : XCTestCase
 
 @end
@@ -27,13 +30,31 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[AudioFileTaggerTests class]];
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    NSString * kfile1Path = [bundle pathForResource:@"Black Barrels Waste -final" ofType:@"m4a"];
+    NSString * kfile2Path = [bundle pathForResource:@"Don't Trust Me" ofType:@"mp3"];
+
+    for (NSString *path in @[kfile1Path, kfile2Path]) {
+     
+        Metadata *meta = [[Metadata alloc] initWithMetadataFromFile:[NSURL fileURLWithPath:path]];
+
+        NSLog(@"\n");
+        NSLog(@"\n");
+        NSLog(@"title: %@", meta.title);
+        NSLog(@"artist: %@", meta.artist);
+        NSLog(@"albumName: %@", meta.albumName);
+        NSLog(@"composer: %@", meta.composer);
+        NSLog(@"genre: %@", meta.genre);
+        NSLog(@"artwork: %@", meta.artwork);
+        NSLog(@"trackNumber: %@", meta.trackNumber);
+        NSLog(@"year: %@", meta.year);
+        NSLog(@"comment: %@", meta.comment);
+        NSLog(@"lyrics: %@", meta.lyrics);
+        NSLog(@"\n");
+        NSLog(@"\n");
+    }
 }
 
 @end
