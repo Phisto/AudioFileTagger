@@ -10,22 +10,15 @@
 #import "Metadata.h"
 #import "NSImage+PNGData.h"
 
-
-@import TagLib;
-
-/*
-#import <TagLib/TagLib.h>
-#import <TagLib/tag_c.h>
-#import <TagLib/tag.h>
-
-#import <TagLib/fileref.h>
-#import <TagLib/mpegfile.h>
-#import <TagLib/tag.h>
-#import <TagLib/tstring.h>
-#import <TagLib/tbytevector.h>
-#import <TagLib/attachedpictureframe.h>
-#import <TagLib/id3v2tag.h>
-*/
+#import <taglib/fileref.h>
+#import <taglib/mpegfile.h>
+#import <taglib/tag.h>
+#import <taglib/tstring.h>
+#import <taglib/tbytevector.h>
+#import <taglib/attachedpictureframe.h>
+#import <taglib/unsynchronizedlyricsframe.h>
+#import <taglib/textidentificationframe.h>
+#import <taglib/id3v2tag.h>
 
 @interface MP3Tagger (/* Private */)
 
@@ -61,12 +54,11 @@
 #pragma mark - Tagging
 
 
-- (BOOL)tagFile:(NSURL *)file {
+- (BOOL)tagFile:(NSURL *)fileURL {
     
-    
-    TagLib::MPEG::File f(file.path.fileSystemRepresentation);
-    
-    if (f.tag() != NULL && self.metadata) {
+    TagLib::MPEG::File f(fileURL.path.fileSystemRepresentation);
+
+    if (f.tag() && self.metadata && self.metadata.validMetadata) {
         
         if (self.metadata.title) {
             
@@ -83,19 +75,20 @@
             f.tag()->setAlbum(TagLib::String((self.metadata.albumName).UTF8String, TagLib::String::UTF8));
         }
         
-        if (self.metadata.year) {
-            
-            f.tag()->setYear((self.metadata.year).intValue);
+        // composer
+        if (self.metadata.composer) {
+
+            TagLib::ID3v2::TextIdentificationFrame *composerFrame = new TagLib::ID3v2::TextIdentificationFrame("TCOM", TagLib::String::Latin1);
+            if (composerFrame) {
+                
+                composerFrame->setText(TagLib::String(self.metadata.composer.UTF8String, TagLib::String::UTF8));
+                if (f.ID3v2Tag()) f.ID3v2Tag()->addFrame(composerFrame);
+            }
         }
         
         if (self.metadata.genre) {
             
             f.tag()->setGenre(TagLib::String((self.metadata.genre).UTF8String, TagLib::String::UTF8));
-        }
-        
-        if (self.metadata.trackNumber) {
-            
-            f.tag()->setTrack((self.metadata.trackNumber).intValue);
         }
         
         if (self.metadata.artwork) {
@@ -105,14 +98,41 @@
                 
                 TagLib::ID3v2::AttachedPictureFrame *pictureFrame = new TagLib::ID3v2::AttachedPictureFrame();
                 
-                if (pictureFrame != NULL) {
+                if (pictureFrame) {
                     
                     pictureFrame->setMimeType(TagLib::String("image/png", TagLib::String::UTF8));
                     pictureFrame->setPicture(TagLib::ByteVector((const char *)imgData.bytes, (uint)imgData.length));
-                    if (f.ID3v2Tag() != NULL) f.ID3v2Tag()->addFrame(pictureFrame);
+                    if (f.ID3v2Tag()) f.ID3v2Tag()->addFrame(pictureFrame);
                 }
             }
         }
+        
+        if (self.metadata.trackNumber) {
+            
+            f.tag()->setTrack((self.metadata.trackNumber).intValue);
+        }
+        
+        if (self.metadata.year) {
+            
+            f.tag()->setYear((self.metadata.year).intValue);
+        }
+        
+        if (self.metadata.comment) {
+            
+            f.tag()->setComment(TagLib::String((self.metadata.comment).UTF8String, TagLib::String::UTF8));
+        }
+        
+        if (self.metadata.lyrics) {
+
+            TagLib::ID3v2::UnsynchronizedLyricsFrame *lyricsFrame = new TagLib::ID3v2::UnsynchronizedLyricsFrame();
+   
+            if (lyricsFrame) {
+                
+                lyricsFrame->setText(TagLib::String((self.metadata.lyrics).UTF8String, TagLib::String::UTF8));
+                if (f.ID3v2Tag()) f.ID3v2Tag()->addFrame(lyricsFrame);
+            }
+            
+        }        
         
         BOOL successSave = f.save();
         return successSave;

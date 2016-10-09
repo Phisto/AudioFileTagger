@@ -13,6 +13,10 @@
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public License
+ *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
 #import <Foundation/Foundation.h>
@@ -24,7 +28,7 @@
  An MP3Tagger object can tag audio files with ID3v2 tags.
  
  ## Sandboxing Notes
- This is NOT implemented in a sandboxing friendly manor, you need to take care of file access yourself.
+ MP3Tagger is NOT implemented in a sandboxing friendly manor, you need to take care of file access yourself.
  
  */
 
@@ -81,12 +85,12 @@ NS_ASSUME_NONNULL_BEGIN
  
  Writes the tags to the specified file.
  
- @param file The file to tag.
+ @param fileURL The file to tag.
  
  @return YES if the file was tagged successfully, otherwise NO.
  
  */
-- (void)tagFile:(NSURL *)file;
+- (BOOL)tagFile:(NSURL *)fileURL;
 
 @end
 NS_ASSUME_NONNULL_END

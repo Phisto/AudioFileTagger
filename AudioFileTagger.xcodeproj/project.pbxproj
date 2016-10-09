@@ -26,6 +26,8 @@
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
 		F43743481DA12B2E0042913F /* Don't Trust Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */; };
 		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; };
+		F44786491DA3BC39009B4E15 /* taglib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44786481DA3BC29009B4E15 /* taglib.framework */; };
+		F447864A1DA3BC44009B4E15 /* taglib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F44786481DA3BC29009B4E15 /* taglib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,39 +35,30 @@
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
 		F4E8DB1F1D5897A8005D5D75 /* NSImage+PNGData.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */; };
 		F4E8DB201D5897A8005D5D75 /* NSImage+PNGData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */; };
-		F4ED6AA51D8F8003001DB076 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */; };
 		F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */; };
-		F4ED6ABC1D8F8112001DB076 /* TagLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F44786471DA3BC29009B4E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F44786431DA3BC29009B4E15 /* taglib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = taglib;
+		};
+		F44786501DA3BE1A009B4E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F44786431DA3BC29009B4E15 /* taglib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = taglib;
+		};
 		F44E54601D5DE11D00B41FCE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4C0FA691BBD47F900E0AD6C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F4C0FA711BBD47F900E0AD6C;
 			remoteInfo = AudioFileTagger;
-		};
-		F4ED6A9F1D8F7FE7001DB076 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = "TagLib Framework";
-		};
-		F4ED6AA11D8F7FE7001DB076 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F4ED6A8C1D8F7E1C001DB076;
-			remoteInfo = TagLibTests;
-		};
-		F4ED6AA31D8F7FF9001DB076 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = "TagLib Framework";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -76,7 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F4ED6ABC1D8F8112001DB076 /* TagLib.framework in Copy Frameworks */,
+				F447864A1DA3BC44009B4E15 /* taglib.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +83,7 @@
 		F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Don't Trust Me.mp3"; path = "test-files/Don't Trust Me.mp3"; sourceTree = "<group>"; };
 		F43743491DA13E090042913F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F447863B1DA39757009B4E15 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "Supporting Files/module.modulemap"; sourceTree = "<group>"; };
+		F44786431DA3BC29009B4E15 /* taglib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taglib.xcodeproj; path = ../TagLib/taglib/taglib.xcodeproj; sourceTree = "<group>"; };
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +94,6 @@
 		F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MP3Tagger.m; path = Tagger/MP3Tagger.m; sourceTree = "<group>"; };
 		F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+PNGData.h"; sourceTree = "<group>"; };
 		F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+PNGData.m"; sourceTree = "<group>"; };
-		F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TagLib.xcodeproj; path = ../TagLib/TagLib.xcodeproj; sourceTree = "<group>"; };
 		F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -117,9 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44786491DA3BC39009B4E15 /* taglib.framework in Frameworks */,
 				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
-				F4ED6AA51D8F8003001DB076 /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +145,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F44786441DA3BC29009B4E15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F44786481DA3BC29009B4E15 /* taglib.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,9 +168,9 @@
 			children = (
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */,
-				F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
+				F44786431DA3BC29009B4E15 /* taglib.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,15 +212,6 @@
 				F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		F4ED6A9B1D8F7FE7001DB076 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */,
-				F4ED6AA21D8F7FE7001DB076 /* TagLibTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
@@ -279,7 +271,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F4ED6AA41D8F7FF9001DB076 /* PBXTargetDependency */,
+				F44786511DA3BE1A009B4E15 /* PBXTargetDependency */,
 			);
 			name = AudioFileTagger;
 			productName = AudioFileTagger;
@@ -322,8 +314,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F4ED6A9B1D8F7FE7001DB076 /* Products */;
-					ProjectRef = F4ED6A9A1D8F7FE7001DB076 /* TagLib.xcodeproj */;
+					ProductGroup = F44786441DA3BC29009B4E15 /* Products */;
+					ProjectRef = F44786431DA3BC29009B4E15 /* taglib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -336,18 +328,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F4ED6AA01D8F7FE7001DB076 /* TagLib.framework */ = {
+		F44786481DA3BC29009B4E15 /* taglib.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = TagLib.framework;
-			remoteRef = F4ED6A9F1D8F7FE7001DB076 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F4ED6AA21D8F7FE7001DB076 /* TagLibTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TagLibTests.xctest;
-			remoteRef = F4ED6AA11D8F7FE7001DB076 /* PBXContainerItemProxy */;
+			path = taglib.framework;
+			remoteRef = F44786471DA3BC29009B4E15 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -416,15 +401,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F44786511DA3BE1A009B4E15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = taglib;
+			targetProxy = F44786501DA3BE1A009B4E15 /* PBXContainerItemProxy */;
+		};
 		F44E54611D5DE11D00B41FCE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */;
 			targetProxy = F44E54601D5DE11D00B41FCE /* PBXContainerItemProxy */;
-		};
-		F4ED6AA41D8F7FF9001DB076 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "TagLib Framework";
-			targetProxy = F4ED6AA31D8F7FF9001DB076 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
