@@ -30,6 +30,7 @@
 		F447864A1DA3BC44009B4E15 /* taglib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F44786481DA3BC29009B4E15 /* taglib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
+		F47BC4211DAC4D67003DD71F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F47BC4201DAC4D67003DD71F /* README.md */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
@@ -87,6 +88,8 @@
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47BC41F1DAC4D67003DD71F /* LICENSE.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = LICENSE.rtf; sourceTree = SOURCE_ROOT; };
+		F47BC4201DAC4D67003DD71F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
 		F4C0FA771BBD47F900E0AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 		F447863A1DA39728009B4E15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F47BC41F1DAC4D67003DD71F /* LICENSE.rtf */,
+				F47BC4201DAC4D67003DD71F /* README.md */,
 				F447863B1DA39757009B4E15 /* module.modulemap */,
 			);
 			name = "Supporting Files";
@@ -394,6 +399,7 @@
 			files = (
 				F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */,
 				F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */,
+				F47BC4211DAC4D67003DD71F /* README.md in Sources */,
 				F4E8DB201D5897A8005D5D75 /* NSImage+PNGData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
