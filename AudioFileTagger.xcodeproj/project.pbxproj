@@ -361,7 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ntarget=\"macosx\";\noutputPath=\"~/Documents/XCode/Mac Apps/Converter - Projekt/Documentation/AudioFileTagger\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--output \"${outputPath}\" \\\n--docset-platform-family \"${target}\" \\\n--ignore \".m\" \\\n--index-desc \"~/Documents/XCode/Mac Apps/Converter - Projekt/Documentation/AudioFileTagger/readme.markdown\" \\\n--logformat xcode \\\n\"${PROJECT_DIR}\"";
+			shellScript = "#appledoc Xcode script\n# Start constants\ntarget=\"macosx\";\noutputPath=\"~/Documents/XCode/Mac Apps/Converter - Projekt/Documentation/AudioFileTagger\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--output \"${outputPath}\" \\\n--docset-platform-family \"${target}\" \\\n--ignore \".m\" \\\n--index-desc \"~/Documents/XCode/Mac Apps/Converter - Projekt/AudioFileTagger/README.md\" \\\n--logformat xcode \\\n\"${PROJECT_DIR}\"";
 		};
 		F4ED6A991D8F7E86001DB076 /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
