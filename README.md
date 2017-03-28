@@ -16,7 +16,7 @@ TagLib is a library for reading and editing the meta-data of several popular aud
 
 For more information on TagLib visit https://taglib.github.io/
 
-##License
+## License
 
 AudioFileTagger is released under the GNU Lesser General Public License (LGPL). 
 
