@@ -19,25 +19,49 @@ The AudioFileTagger framework provides facilities for reading metadata from file
 github "Phisto/AudioFileTagger" ~> 1.0
 ```
 
+
 ### Manually
 
 If you prefer not to use Carthage, you can integrate AudioFileTagger into your project manually.
 You only need to build and add the AudioFileTagger framework (AudioFileTagger.framework) to your project. 
 
 
+## Usage
+
+```objectivec
+
+NSURL *fileURL = <#...#>
+Metadata *meta = [[Metadata alloc] initWithMetadataFromFile:fileURL];
+if (metadata) {
+    
+    NSLog(@"\n");
+    NSLog(@"title: %@", meta.title);
+    NSLog(@"artist: %@", meta.artist);
+    NSLog(@"albumName: %@", meta.albumName);
+    NSLog(@"\n");
+}
+
+MP3Tagger *tagger = [MP3Tagger taggerWithMetadata:meta];
+if (!tagger) {
+    <#// handle failure...#>
+}
+
+NSURL *fileToTag = <#...#>
+BOOL erfolg = [tagger tagFile:fileToTag];
+if (!erfolg) {
+    <#// handle failure...#>
+}
+
+```
+
+
+
 ## TagLib
 
 The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag the encoded MP3 files with ID3v2 tags.
-TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the GNU Lesser General Public License (LGPL) and Mozilla Public License (MPL). 
+TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/) and [Mozilla Public License (MPL)](https://www.mozilla.org/en-US/MPL/). 
 
 
 ## License
 
-AudioFileTagger is released under the GNU Lesser General Public License (LGPL). 
-
-See <http://www.gnu.org/licenses/> for details.
-
-
-
-
-
+AudioFileTagger is released under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/). 
