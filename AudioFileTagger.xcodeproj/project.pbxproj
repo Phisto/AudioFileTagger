@@ -73,7 +73,7 @@
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47BC4201DAC4D67003DD71F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		F494099D222B678400AAB1D5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = AudioFileTagger/.gitignore; sourceTree = SOURCE_ROOT; };
+		F494099D222B678400AAB1D5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		F49409A3222B6E5E00AAB1D5 /* tag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = tag.framework; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
