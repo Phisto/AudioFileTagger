@@ -24,7 +24,6 @@
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
-		F43743481DA12B2E0042913F /* Don't Trust Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */; };
 		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
@@ -64,7 +63,6 @@
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 		F43743451DA113330042913F /* Black Barrels Waste -final.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Barrels Waste -final.m4a"; path = "test-files/Black Barrels Waste -final.m4a"; sourceTree = "<group>"; };
-		F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Don't Trust Me.mp3"; path = "test-files/Don't Trust Me.mp3"; sourceTree = "<group>"; };
 		F43743491DA13E090042913F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F447863B1DA39757009B4E15 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "Supporting Files/module.modulemap"; sourceTree = "<group>"; };
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +115,6 @@
 		F43743431DA1131E0042913F /* test-files */ = {
 			isa = PBXGroup;
 			children = (
-				F43743471DA12B2E0042913F /* Don't Trust Me.mp3 */,
 				F43743451DA113330042913F /* Black Barrels Waste -final.m4a */,
 			);
 			name = "test-files";
@@ -305,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43743481DA12B2E0042913F /* Don't Trust Me.mp3 in Resources */,
 				F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
