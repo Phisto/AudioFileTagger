@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, readonly) Metadata *metadata;
 
+
+
 #pragma mark - Inititalization
 ///----------------------
 /// @name Inititalization
@@ -76,6 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable instancetype)taggerWithMetadata:(Metadata *)metadata;
 
+
+
 #pragma mark - Methodes
 ///---------------
 /// @name Methodes
@@ -91,6 +95,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (BOOL)tagFile:(NSURL *)fileURL;
+
+
 
 @end
 NS_ASSUME_NONNULL_END

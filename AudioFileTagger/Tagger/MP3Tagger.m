@@ -10,15 +10,14 @@
 #import "Metadata.h"
 #import "NSImage+PNGData.h"
 
-#import <taglib/fileref.h>
-#import <taglib/mpegfile.h>
-#import <taglib/tag.h>
-#import <taglib/tstring.h>
-#import <taglib/tbytevector.h>
-#import <taglib/attachedpictureframe.h>
-#import <taglib/unsynchronizedlyricsframe.h>
-#import <taglib/textidentificationframe.h>
-#import <taglib/id3v2tag.h>
+#import <tag/mpegfile.h>
+#import <tag/tag.h>
+#import <tag/tstring.h>
+#import <tag/tbytevector.h>
+#import <tag/attachedpictureframe.h>
+#import <tag/unsynchronizedlyricsframe.h>
+#import <tag/textidentificationframe.h>
+#import <tag/id3v2tag.h>
 
 @interface MP3Tagger (/* Private */)
 
