@@ -2,7 +2,7 @@
  *  Metadata.h
  *  AudioFileTagger
  *
- *  Copyright © 2015-2016 Simon Gaus <simon.cay.gaus@gmail.com>
+ *  Copyright © 2015-2019 Simon Gaus <simon.cay.gaus@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -24,7 +24,7 @@
 /**
  
  The Metadata class describes an audio media item such as a song.
- 
+
  Supported Tags:
  - title
  - artist
@@ -49,6 +49,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Metadata : NSObject
+#pragma mark - Initialize the metadata from a file
+///-----------------------------------------------
+/// @name Initialize the metadata from a file
+///-----------------------------------------------
+
+/**
+ 
+ @brief Initializes an Metadata object with the metadata of the given audio file.
+ 
+ @param fileURL The url to the audio file.
+ 
+ @return An initialized Metadata object, or nil if the file coulden't be read or the file has no tags.
+ 
+ */
+- (nullable instancetype)initWithMetadataFromFile:(NSURL *)fileURL;
+
+
 
 #pragma mark - Tags
 ///-----------
@@ -56,91 +73,88 @@ NS_ASSUME_NONNULL_BEGIN
 ///-----------
 
 /**
- The title of this media item.
+ @brief The title of this media item.
  */
 @property (nonatomic, strong) NSString *title;
 /**
- The name of the artist associated with this media item.
+ @brief The name of the artist associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *artist;
 /**
- The name of the album associated with this media item.
+ @brief The name of the album associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *albumName;
 /**
- The name of the composer associated with this media item.
+ @brief The name of the composer associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *composer;
 /**
- The genre associated with this media item.
+ @brief The genre associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *genre;
 /**
- Whether this media item has artwork.
+ @brief Whether this media item has artwork.
  */
 @property (nonatomic, readonly, getter=hasArtworkAvailable) BOOL artworkAvailable;
 /**
- The artwork of this media item.
+ @brief The artwork of this media item.
  */
 @property (nullable, nonatomic, strong) NSImage *artwork;
 /**
- The track number of this media item within its album.
+ @brief The track number of this media item within its album.
  */
 @property (nullable, nonatomic, strong) NSNumber *trackNumber;
 /**
- The year when this media item was released.
+ @brief The year when this media item was released.
  */
 @property (nullable, nonatomic, strong) NSNumber *year;
 /**
- The comment associated with this media item.
+ @brief The comment associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *comment;
 /**
- The comment associated with this media item.
+ @brief The comment associated with this media item.
  */
 @property (nullable, nonatomic, strong) NSString *lyrics;
-/**
- Whether this media item has valid metadata (at least one value).
- */
-@property (nonatomic, readonly) BOOL validMetadata;
 
-#pragma mark - Audio Properties
-///-----------------------
-/// @name Audio Properties
-///-----------------------
+
+
+#pragma mark - Audio File Properties
+///---------------------------------
+/// @name Audio File Properties
+///---------------------------------
 
 /**
- The size in bytes of this media item.
+ @brief The size in bytes of this media item.
  */
 @property (nonatomic, readwrite) NSUInteger size;
 /**
- The length of this media item in milliseconds.
+ @brief The length of this media item in milliseconds.
  */
 @property (nonatomic, readwrite) NSUInteger totalTime;
 /**
- The bitrate of this media item in kbps.
+ @brief The bitrate of this media item in kbps (kilobit per second).
  */
 @property (nonatomic, readwrite) NSUInteger bitrate;
 /**
- The sample rate of this media item in samples per second.
+ @brief The sample rate of this media item (samples per second, eg. 44.1 kHz).
  */
 @property (nonatomic, readwrite) NSUInteger sampleRate;
 
-#pragma mark - Initialization
-///---------------------
-/// @name Initialization
-///---------------------
+
+
+#pragma mark - Validating metadata
+///-------------------------------
+/// @name Validating metadata
+///-------------------------------
 
 /**
- 
- Initializes an Metadata object with the metadata of the given audio file.
- 
- @param fileURL The fileURL to the audio file.
- 
- @return An initialized Metadata object, or nil if the file coulden't be read or the file has no tags.
- 
+ @brief Whether this media item has valid metadata.
+ @discussion This property will be YES if there is at least one property set.
  */
-- (nullable instancetype)initWithMetadataFromFile:(NSURL *)fileURL;
+@property (nonatomic, readonly) BOOL validMetadata;
+
+
 
 @end
 NS_ASSUME_NONNULL_END

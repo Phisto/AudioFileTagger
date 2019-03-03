@@ -24,6 +24,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+///----------------------
+/// @name CATEGORIES
+///----------------------
+
+
 
 @interface Metadata (/* Private */)
 
@@ -33,7 +38,17 @@
 
 @end
 
+
+
+///----------------------
+/// @name Implementation
+///----------------------
+
+
+
 @implementation Metadata
+#pragma mark - Initialize the metadata from a file
+
 
 - (nullable instancetype)initWithMetadataFromFile:(NSURL *)fileURL {
     
@@ -41,13 +56,13 @@
     self = [super init];
     if (self) {
         
-        _avAsset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
-        if (!_avAsset) {
+        _fileURL = fileURL;
+        if (!_fileURL) {
             return nil;
         }
         
-        _fileURL = fileURL;
-        if (!_fileURL) {
+        _avAsset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
+        if (!_avAsset) {
             return nil;
         }
         
@@ -70,13 +85,14 @@
         }
         _avAsset = nil;
         _fileURL = nil;
-        
     }
     
     return (self.validMetadata) ? self : nil;
 }
 
-#pragma mark - Asset Methodes
+
+#pragma mark - Retrieving the metadata
+
 
 -(NSString*)trackTitleFromAsset {
     
@@ -93,11 +109,12 @@
         title = [self getAudioPropertyForKey:kAFInfoDictionary_Title];
     }
     if (!title) {
-        title = [self trackTitleFromFile];
+        title = [[_fileURL lastPathComponent] stringByDeletingPathExtension];
     }
     
     return title;
 }
+
 
 -(NSString*)artistNameFromAsset {
     
@@ -110,7 +127,6 @@
     if ([value isKindOfClass:[NSString class]]) {
         artist = (NSString *)value;
     }
-    
     if (!artist) {
         
         artist = [self getAudioPropertyForKey:kAFInfoDictionary_Artist];
@@ -118,6 +134,7 @@
     
     return artist;
 }
+
 
 -(NSString*)albumNameFromAsset {
     
@@ -130,7 +147,6 @@
     if ([value isKindOfClass:[NSString class]]) {
         albumName = (NSString *)value;
     }
-    
     if (!albumName) {
         
         albumName = [self getAudioPropertyForKey:kAFInfoDictionary_Album];
@@ -138,6 +154,7 @@
     
     return albumName;
 }
+
 
 -(NSString*)composerNameFromAsset {
     
@@ -150,7 +167,6 @@
     if ([value isKindOfClass:[NSString class]]) {
         composer = (NSString *)value;
     }
-    
     if (!composer) {
         
         composer = [self getAudioPropertyForKey:kAFInfoDictionary_Composer];
@@ -158,6 +174,7 @@
     
     return composer;
 }
+
 
 -(NSString*)genreFromAsset {
     
@@ -170,15 +187,14 @@
     if ([value isKindOfClass:[NSString class]]) {
         genre = (NSString *)value;
     }
-    
     if (!genre) {
         
         genre = [self getAudioPropertyForKey:kAFInfoDictionary_Genre];
     }
     
-    
     return genre;
 }
+
 
 -(NSImage *)artworkFromAsset {
     
@@ -204,15 +220,14 @@
     return img;
 }
 
+
 -(NSNumber*)trackNumberFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
                                   withID3Fallback:AVMetadataID3MetadataKeyTrackNumber
                                withiTunesFallback:AVMetadataiTunesMetadataKeyTrackNumber];
     
-    // get a string from the
     NSString *valueString;
-    
     // AVMetadataID3MetadataKeyTrackNumber will return string
     if ([value isKindOfClass:[NSString class]]) {
         
@@ -225,13 +240,14 @@
         NSArray *parts = [[NSString stringWithFormat:@"%@", (NSData *)value] componentsSeparatedByString:@" "];
         
         NSString *firstPartOfData = [parts firstObject];
-        if (firstPartOfData && firstPartOfData.length > 8) valueString = [firstPartOfData substringWithRange:NSMakeRange(1, 8)];
+        if (firstPartOfData && firstPartOfData.length > 8) {
+            
+            valueString = [firstPartOfData substringWithRange:NSMakeRange(1, 8)];
+        }
     }
     
     NSNumber *trackNumberObject;
-    
     if (valueString) {
-        
         
         int trackNumberSigned = 0;
         unsigned int trackNumberUnsigned = 0;
@@ -250,6 +266,7 @@
     
     return trackNumberObject;
 }
+
 
 -(NSNumber *)creationYearFromAsset {
     
@@ -285,6 +302,7 @@
     return year;
 }
 
+
 -(NSString*)commentFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
@@ -311,6 +329,7 @@
     return comment;
 }
 
+
 -(NSString*)lyricsFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
@@ -326,7 +345,9 @@
     return lyrics;
 }
 
-#pragma mark - Asset Methodes
+
+#pragma mark - Reading the metadata from AVURLAsset
+
 
 - (id)getMetadataValueForCommonKey:(NSString*)commonKey
                    withID3Fallback:(NSString*)ID3FallbackKey
@@ -360,6 +381,8 @@
 }
 
 
+#pragma mark - Reading the metadata via AudioToolbox
+
 
 - (NSString *)getAudioPropertyForKey:(const char *)key {
     
@@ -379,14 +402,9 @@
     return value;
 }
 
-#pragma mark - File Methodes
 
-- (NSString *)trackTitleFromFile {
-    
-    return [[_fileURL lastPathComponent] stringByDeletingPathExtension];
-}
+#pragma mark - Validate metadata comments
 
-#pragma mark - Helper Methodes
 
 - (BOOL)isiTunNORMComment:(NSString *)commentString {
     
@@ -407,43 +425,44 @@
         }
         
         return isEightCharsLong;
-        
     }
     
     return NO;
 }
 
-#pragma mark - Custom Getter
+
+#pragma mark - Lazy/Getter
+
 
 - (BOOL)validMetadata {
     
-    if (
-        self.title ||
-        self.artist ||
-        self.albumName ||
-        self.composer ||
-        self.genre ||
-        self.artworkAvailable ||
-        self.comment ||
-        self.lyrics
-        ) {
-        
-        return YES;
-    }
-    return NO;
+    return (
+            self.title ||
+            self.artist ||
+            self.albumName ||
+            self.composer ||
+            self.genre ||
+            self.artworkAvailable ||
+            self.comment ||
+            self.lyrics
+            );
 }
+
 
 - (BOOL)artworkAvailable {
     
     return [self hasArtworkAvailable];
 }
 
+
 - (BOOL)hasArtworkAvailable {
     
     return (self.artwork) ? YES : NO;
 }
 
+
 #pragma mark - Lazy Getter
+
 
 - (AudioFileID)songID {
     
@@ -462,6 +481,7 @@
     
     return _songID;
 }
+
 
 #pragma mark -
 @end
