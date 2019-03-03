@@ -72,7 +72,7 @@
 		F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioFileTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileTaggerTests.m; sourceTree = "<group>"; };
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F47BC4201DAC4D67003DD71F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = AudioFileTagger/README.md; sourceTree = SOURCE_ROOT; };
+		F47BC4201DAC4D67003DD71F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F494099D222B678400AAB1D5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		F49409A3222B6E5E00AAB1D5 /* tag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = tag.framework; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +151,8 @@
 				F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
+				F47BC4201DAC4D67003DD71F /* README.md */,
+				F494099D222B678400AAB1D5 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,8 +173,6 @@
 				F4033FBA1D5FC0C900FCB276 /* Enities */,
 				F447863A1DA39728009B4E15 /* Supporting Files */,
 				F4E8DB211D5897E1005D5D75 /* Categories */,
-				F47BC4201DAC4D67003DD71F /* README.md */,
-				F494099D222B678400AAB1D5 /* .gitignore */,
 			);
 			path = AudioFileTagger;
 			sourceTree = "<group>";
