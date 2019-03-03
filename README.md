@@ -3,7 +3,7 @@
 
 ## Overview
 
-The AudioFileTagger framework provides facilities for reading metadata from files and tagging MP3 files with ID3v2 tags.
+The AudioFileTagger framework provides facilities for reading metadata from audio files and tagging MP3 files with ID3v2 tags.
 
 
 ## Requirements
