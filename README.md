@@ -1,3 +1,5 @@
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## Overview
 
 The AudioFileTagger framework provides facilities for reading metadata from files and tagging MP3 files with ID3v2 tags.
@@ -46,7 +48,7 @@ if (!tagger) {
     <#// handle failure...#>
 }
 
-NSURL *fileToTag = <#...#>
+NSURL *mp3FileToTag = <#...#>
 BOOL erfolg = [tagger tagFile:fileToTag];
 if (!erfolg) {
     <#// handle failure...#>
@@ -55,10 +57,9 @@ if (!erfolg) {
 ```
 
 
-
 ## TagLib
 
-The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag the encoded MP3 files with ID3v2 tags.
+The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag MP3 files with ID3v2 tags.
 TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/) and [Mozilla Public License (MPL)](https://www.mozilla.org/en-US/MPL/). 
 
 
