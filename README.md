@@ -2,19 +2,34 @@
 
 The AudioFileTagger framework provides facilities for reading metadata from files and tagging MP3 files with ID3v2 tags.
 
-## Usage
 
-To use the AudioFileTagger framework in your project, you must add the AudioFileTagger framework (AudioFileTagger.framework) to the project. 
+## Requirements
 
-The AudioFileTagger framework is available for projects targeting macOS 10.10 or above.
+- macOS 10.10+
+- Xcode 10.1+
+
+
+## Installation
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AudioFileTagger into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "Phisto/AudioFileTagger" ~> 1.0
+```
+
+### Manually
+
+If you prefer not to use Carthage, you can integrate AudioFileTagger into your project manually.
+You only need to build and add the AudioFileTagger framework (AudioFileTagger.framework) to your project. 
+
 
 ## TagLib
 
-The AudioFileTagger framework is using TagLib to tag the encoded MP3 files with ID3v2 tags.
-
+The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag the encoded MP3 files with ID3v2 tags.
 TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the GNU Lesser General Public License (LGPL) and Mozilla Public License (MPL). 
 
-For more information on TagLib visit https://taglib.github.io/
 
 ## License
 
