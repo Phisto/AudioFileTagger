@@ -28,8 +28,7 @@
 		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
 		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
-		F49409A4222B6E5E00AAB1D5 /* tag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49409A3222B6E5E00AAB1D5 /* tag.framework */; };
-		F49409A8222B709A00AAB1D5 /* tag.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F49409A3222B6E5E00AAB1D5 /* tag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F49409AC222B875200AAB1D5 /* tag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49409AB222B875200AAB1D5 /* tag.framework */; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
@@ -55,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F49409A8222B709A00AAB1D5 /* tag.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +72,7 @@
 		F44E545E1D5DE11D00B41FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47BC4201DAC4D67003DD71F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F494099D222B678400AAB1D5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
-		F49409A3222B6E5E00AAB1D5 /* tag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = tag.framework; sourceTree = "<group>"; };
+		F49409AB222B875200AAB1D5 /* tag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tag.framework; path = "Supporting Files/tag.framework"; sourceTree = "<group>"; };
 		F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioFileTagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileTagger.h; sourceTree = "<group>"; };
 		F4C0FA771BBD47F900E0AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +98,7 @@
 			files = (
 				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
-				F49409A4222B6E5E00AAB1D5 /* tag.framework in Frameworks */,
+				F49409AC222B875200AAB1D5 /* tag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +128,7 @@
 			children = (
 				F4C0FA771BBD47F900E0AD6C /* Info.plist */,
 				F447863B1DA39757009B4E15 /* module.modulemap */,
+				F49409AB222B875200AAB1D5 /* tag.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,7 +197,6 @@
 		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F49409A3222B6E5E00AAB1D5 /* tag.framework */,
 				F43743491DA13E090042913F /* AudioToolbox.framework */,
 				F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */,
 			);
@@ -539,6 +537,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AudioFileTagger/Supporting\\ Files",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -578,6 +577,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AudioFileTagger/Supporting\\ Files",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_OPTIMIZATION_LEVEL = s;

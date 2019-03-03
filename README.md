@@ -63,6 +63,18 @@ if (!erfolg) {
 The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag MP3 files with ID3v2 tags.
 TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/) and [Mozilla Public License (MPL)](https://www.mozilla.org/en-US/MPL/). 
 
+### The included tag.framework was build with the following arguments:
+
+```objectivec
+
+cmake -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_FRAMEWORK=ON \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.10 \
+        -DCMAKE_OSX_ARCHITECTURES="x86_64" \
+        -DBUILD_SHARED_LIBS=OFF \
+        -DCMAKE_INSTALL_PREFIX=<outputfolder>
+```
+
 
 ## License
 
