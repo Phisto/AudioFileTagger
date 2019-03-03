@@ -149,9 +149,6 @@ playground.xcworkspace
 
 # End of https://www.gitignore.io/api/xcode,macos,swift,objective-c
 
-## exclude aac encoding files (not ready)
-AACEncodingTests.m
-AACEncoderOperation.h
-AACEncoderOperation.m
-
+### Exclude framework ###
+tag.framework
 
