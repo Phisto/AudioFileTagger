@@ -150,5 +150,5 @@ playground.xcworkspace
 # End of https://www.gitignore.io/api/xcode,macos,swift,objective-c
 
 ### Exclude framework ###
-tag.framework
+#tag.framework
 
