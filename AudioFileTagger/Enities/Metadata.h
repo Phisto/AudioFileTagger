@@ -50,9 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Metadata : NSObject
 #pragma mark - Initialize the metadata from a file
-///-----------------------------------------------
+///---------------------------------------------------------------------------
 /// @name Initialize the metadata from a file
-///-----------------------------------------------
+///---------------------------------------------------------------------------
 
 /**
  
@@ -68,9 +68,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - Tags
-///-----------
+///--------------------------
 /// @name Tags
-///-----------
+///--------------------------
 
 /**
  @brief The title of this media item.
@@ -120,9 +120,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - Audio File Properties
-///---------------------------------
+///----------------------------------------------------
 /// @name Audio File Properties
-///---------------------------------
+///----------------------------------------------------
 
 /**
  @brief The size in bytes of this media item.
@@ -144,9 +144,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - Validating metadata
-///-------------------------------
+///-------------------------------------------------
 /// @name Validating metadata
-///-------------------------------
+///-------------------------------------------------
 
 /**
  @brief Whether this media item has valid metadata.

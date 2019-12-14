@@ -2,7 +2,7 @@
  *  NSImage+PNGData.h
  *  AudioFileTagger
  *
- *  Copyright © 2015-2016 Simon Gaus <simon.cay.gaus@gmail.com>
+ *  Copyright © 2015-2019 Simon Gaus <simon.cay.gaus@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -30,6 +30,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSImage (PNGData)
+#pragma mark - Creating PNG data
+///----------------------------------------------
+/// @name Creating PNG data
+///----------------------------------------------
+
 /**
  
  Returns the bitmap representation of the image as PNG data or if there is no bitmap representation creates one.
@@ -38,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (nullable NSData *)pngData;
+
 
 
 @end
