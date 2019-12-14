@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
@@ -45,20 +46,9 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		F49409A7222B708200AAB1D5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		4AC69CD123A53FAE008E0532 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		4AC69CD323A541AC008E0532 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = Carthage/Build/Mac/TagLib.framework; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 		F43743451DA113330042913F /* Black Barrels Waste -final.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Barrels Waste -final.m4a"; path = "test-files/Black Barrels Waste -final.m4a"; sourceTree = "<group>"; };
@@ -94,6 +84,7 @@
 			files = (
 				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
+				4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +135,7 @@
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
 				F47BC4201DAC4D67003DD71F /* README.md */,
+				4AC69CD123A53FAE008E0532 /* Cartfile */,
 				F494099D222B678400AAB1D5 /* .gitignore */,
 			);
 			sourceTree = "<group>";
@@ -190,6 +182,7 @@
 		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AC69CD323A541AC008E0532 /* TagLib.framework */,
 				F43743491DA13E090042913F /* AudioToolbox.framework */,
 				F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */,
 			);
@@ -237,8 +230,8 @@
 			buildPhases = (
 				F4C0FA6D1BBD47F900E0AD6C /* Sources */,
 				F4C0FA6E1BBD47F900E0AD6C /* Frameworks */,
-				F49409A7222B708200AAB1D5 /* Embed Frameworks */,
 				F4C0FA6F1BBD47F900E0AD6C /* Headers */,
+				4AC69CD223A5410D008E0532 /* Carthage */,
 				F4ED6A991D8F7E86001DB076 /* Increment Build Number */,
 			);
 			buildRules = (
@@ -279,6 +272,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = F4C0FA681BBD47F900E0AD6C;
@@ -305,6 +299,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4AC69CD223A5410D008E0532 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/TagLib.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		F48DA4521D9B2CCF00070708 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,6 +543,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/AudioFileTagger/Supporting\\ Files",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -570,6 +584,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/AudioFileTagger/Supporting\\ Files",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_OPTIMIZATION_LEVEL = s;
