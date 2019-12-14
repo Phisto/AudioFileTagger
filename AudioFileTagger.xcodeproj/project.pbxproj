@@ -49,6 +49,7 @@
 /* Begin PBXFileReference section */
 		4AC69CD123A53FAE008E0532 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		4AC69CD323A541AC008E0532 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = Carthage/Build/Mac/TagLib.framework; sourceTree = "<group>"; };
+		4AC69CD523A54542008E0532 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 		F43743451DA113330042913F /* Black Barrels Waste -final.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Barrels Waste -final.m4a"; path = "test-files/Black Barrels Waste -final.m4a"; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 				F4C0FA731BBD47F900E0AD6C /* Products */,
 				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
 				F47BC4201DAC4D67003DD71F /* README.md */,
+				4AC69CD523A54542008E0532 /* LICENSE */,
 				4AC69CD123A53FAE008E0532 /* Cartfile */,
 				F494099D222B678400AAB1D5 /* .gitignore */,
 			);
