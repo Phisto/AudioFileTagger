@@ -19,7 +19,7 @@
  *
  */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 /**
  
@@ -36,15 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 ///----------------------------------------------
 
 /**
- 
- Returns the bitmap representation of the image as PNG data or if there is no bitmap representation creates one.
- 
+ @brief Returns the bitmap representation of the image as PNG data or if there is no bitmap representation creates one.
  @return The png data representation of the receiver, or nil.
- 
  */
 - (nullable NSData *)pngData;
 
 
-
 @end
+
 NS_ASSUME_NONNULL_END

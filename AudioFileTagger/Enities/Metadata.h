@@ -19,7 +19,7 @@
  *
  */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 /**
  
@@ -55,16 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///---------------------------------------------------------------------------
 
 /**
- 
  @brief Initializes an Metadata object with the metadata of the given audio file.
- 
  @param fileURL The url to the audio file.
- 
  @return An initialized Metadata object, or nil if the file coulden't be read or the file has no tags.
- 
  */
 - (nullable instancetype)initWithMetadataFromFile:(NSURL *)fileURL;
-
 
 
 #pragma mark - Tags
@@ -118,7 +113,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) NSString *lyrics;
 
 
-
 #pragma mark - Audio File Properties
 ///----------------------------------------------------
 /// @name Audio File Properties
@@ -142,7 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite) NSUInteger sampleRate;
 
 
-
 #pragma mark - Validating metadata
 ///-------------------------------------------------
 /// @name Validating metadata
@@ -153,7 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion This property will be YES if there is at least one property set.
  */
 @property (nonatomic, readonly) BOOL validMetadata;
-
 
 
 @end

@@ -21,13 +21,10 @@
 
 #import "Metadata.h"
 
-#import <AVFoundation/AVFoundation.h>
-#import <AudioToolbox/AudioToolbox.h>
+@import AVFoundation;
+@import AudioToolbox;
 
-///----------------------
-/// @name CATEGORIES
-///----------------------
-
+#pragma mark - CATEGORIES
 
 
 @interface Metadata (/* Private */)
@@ -39,16 +36,11 @@
 @end
 
 
-
-///----------------------
-/// @name Implementation
-///----------------------
-
+#pragma mark - Implementation
 
 
 @implementation Metadata
 #pragma mark - Initialize the metadata from a file
-
 
 - (nullable instancetype)initWithMetadataFromFile:(NSURL *)fileURL {
     
@@ -79,7 +71,6 @@
         
         // release if used
         if (_songID) {
-            
             AudioFileClose(_songID);
             _songID = nil;
         }
@@ -90,11 +81,9 @@
     return (self.validMetadata) ? self : nil;
 }
 
-
 #pragma mark - Retrieving the metadata
 
-
--(NSString*)trackTitleFromAsset {
+- (NSString*)trackTitleFromAsset {
     
     id value = [self getMetadataValueForCommonKey:AVMetadataCommonKeyTitle
                                   withID3Fallback:AVMetadataID3MetadataKeyTitleDescription
@@ -115,8 +104,7 @@
     return title;
 }
 
-
--(NSString*)artistNameFromAsset {
+- (NSString*)artistNameFromAsset {
     
     id value = [self getMetadataValueForCommonKey:AVMetadataCommonKeyArtist
                                   withID3Fallback:AVMetadataID3MetadataKeyOriginalArtist
@@ -135,8 +123,7 @@
     return artist;
 }
 
-
--(NSString*)albumNameFromAsset {
+- (NSString*)albumNameFromAsset {
     
     id value = [self getMetadataValueForCommonKey:AVMetadataCommonKeyAlbumName
                                   withID3Fallback:AVMetadataID3MetadataKeyAlbumTitle
@@ -155,8 +142,7 @@
     return albumName;
 }
 
-
--(NSString*)composerNameFromAsset {
+- (NSString*)composerNameFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
                                   withID3Fallback:AVMetadataID3MetadataKeyComposer
@@ -175,8 +161,7 @@
     return composer;
 }
 
-
--(NSString*)genreFromAsset {
+- (NSString*)genreFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil // no available key in common keys
                                   withID3Fallback:nil // no available key in id3
@@ -195,8 +180,7 @@
     return genre;
 }
 
-
--(NSImage *)artworkFromAsset {
+- (NSImage *)artworkFromAsset {
     
     id value = [self getMetadataValueForCommonKey:AVMetadataCommonKeyArtwork
                                   withID3Fallback:AVMetadataID3MetadataKeyAttachedPicture
@@ -220,8 +204,7 @@
     return img;
 }
 
-
--(NSNumber*)trackNumberFromAsset {
+- (NSNumber*)trackNumberFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
                                   withID3Fallback:AVMetadataID3MetadataKeyTrackNumber
@@ -267,8 +250,7 @@
     return trackNumberObject;
 }
 
-
--(NSNumber *)creationYearFromAsset {
+- (NSNumber *)creationYearFromAsset {
     
     id value = [self getMetadataValueForCommonKey:AVMetadataCommonKeyCreationDate
                                   withID3Fallback:AVMetadataID3MetadataKeyRecordingTime
@@ -302,8 +284,7 @@
     return year;
 }
 
-
--(NSString*)commentFromAsset {
+- (NSString*)commentFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
                                   withID3Fallback:AVMetadataID3MetadataKeyComments
@@ -329,8 +310,7 @@
     return comment;
 }
 
-
--(NSString*)lyricsFromAsset {
+- (NSString*)lyricsFromAsset {
     
     id value = [self getMetadataValueForCommonKey:nil
                                   withID3Fallback:AVMetadataID3MetadataKeyUnsynchronizedLyric
@@ -345,9 +325,7 @@
     return lyrics;
 }
 
-
 #pragma mark - Reading the metadata from AVURLAsset
-
 
 - (id)getMetadataValueForCommonKey:(NSString*)commonKey
                    withID3Fallback:(NSString*)ID3FallbackKey
@@ -380,9 +358,7 @@
     return value;
 }
 
-
 #pragma mark - Reading the metadata via AudioToolbox
-
 
 - (NSString *)getAudioPropertyForKey:(const char *)key {
     
@@ -402,9 +378,7 @@
     return value;
 }
 
-
 #pragma mark - Validate metadata comments
-
 
 - (BOOL)isiTunNORMComment:(NSString *)commentString {
     
@@ -430,9 +404,7 @@
     return NO;
 }
 
-
 #pragma mark - Lazy/Getter
-
 
 - (BOOL)validMetadata {
     
@@ -448,21 +420,17 @@
             );
 }
 
-
 - (BOOL)artworkAvailable {
     
     return [self hasArtworkAvailable];
 }
-
 
 - (BOOL)hasArtworkAvailable {
     
     return (self.artwork) ? YES : NO;
 }
 
-
 #pragma mark - Lazy Getter
-
 
 - (AudioFileID)songID {
     
@@ -481,7 +449,6 @@
     
     return _songID;
 }
-
 
 #pragma mark -
 @end

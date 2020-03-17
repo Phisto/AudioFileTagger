@@ -10,14 +10,10 @@
 #import "Metadata.h"
 #import "NSImage+PNGData.h"
 
-#import <TagLib/mpegfile.h>
-#import <TagLib/tag.h>
-#import <TagLib/tstring.h>
-#import <TagLib/tbytevector.h>
-#import <TagLib/attachedpictureframe.h>
-#import <TagLib/unsynchronizedlyricsframe.h>
-#import <TagLib/textidentificationframe.h>
-#import <TagLib/id3v2tag.h>
+@import TagLib;
+
+#pragma mark - CATEGORIES
+
 
 @interface MP3Tagger (/* Private */)
 
@@ -26,15 +22,15 @@
 @end
 
 
+#pragma mark - IMPLEMENTATION
+
+
 @implementation MP3Tagger
 #pragma mark - Initialisation
 
-
 + (nullable instancetype)taggerWithMetadata:(Metadata *)metadata {
-
     return [[[self class] alloc] initWithMetadata:metadata];
 }
-
 
 - (nullable instancetype)initWithMetadata:(Metadata *)metadata {
     
@@ -49,9 +45,7 @@
     return self;
 }
 
-
 #pragma mark - Tagging
-
 
 - (BOOL)tagFile:(NSURL *)fileURL {
     
@@ -143,7 +137,6 @@
     
     return NO;
 }
-
 
 #pragma mark -
 @end

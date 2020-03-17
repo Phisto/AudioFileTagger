@@ -24,7 +24,6 @@
 @implementation NSImage (PNGData)
 #pragma mark - Creating PNG data
 
-
 - (nullable NSData *)pngData {
     
     NSEnumerator		*enumerator					= nil;
@@ -48,7 +47,6 @@
     
     return [bitmapRep representationUsingType:NSPNGFileType properties:@{}];
 }
-
 
 #pragma mark -
 @end

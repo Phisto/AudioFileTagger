@@ -454,6 +454,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -511,6 +512,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -533,7 +535,7 @@
 		F4C0FA7B1BBD47F900E0AD6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -560,6 +562,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/Supporting Files/module.modulemap";
 				MODULEMAP_PRIVATE_FILE = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fcxx-modules",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -574,7 +580,7 @@
 		F4C0FA7C1BBD47F900E0AD6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -601,6 +607,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/Supporting Files/module.modulemap";
 				MODULEMAP_PRIVATE_FILE = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fcxx-modules",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,

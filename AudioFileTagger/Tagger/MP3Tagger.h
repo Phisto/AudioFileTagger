@@ -19,7 +19,7 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class Metadata;
 
@@ -35,29 +35,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MP3Tagger : NSObject
-
-#pragma mark - Properties
-///-----------------------------------
-/// @name Properties
-///-----------------------------------
-
-/**
- 
- The metadata associated with the tagger.
- 
-*/
-@property (nonatomic, readonly) Metadata *metadata;
-
-
-
-#pragma mark - Inititalization
-///-------------------------------------------
-/// @name Inititalization
-///-------------------------------------------
+#pragma mark - Initialize a tagger
+///-------------------------------------------------
+/// @name Initialize a tagger
+///-------------------------------------------------
 
 /**
  
- Creates an MP3Tagger object initialized with the given metadata.
+ @brief Creates an MP3Tagger object initialized with the given metadata.
  
  Example usage:
  
@@ -70,33 +55,36 @@ NS_ASSUME_NONNULL_BEGIN
  
     // do stuff ...
  
- 
  @param metadata The metadata to use for tagging.
- 
  @return An MP3Tagger object, or nil.
- 
  */
 + (nullable instancetype)taggerWithMetadata:(Metadata *)metadata;
 
 
-
-#pragma mark - Methodes
+#pragma mark - Metadata
 ///--------------------------------
-/// @name Methodes
+/// @name Metadata
 ///--------------------------------
 
 /**
- 
- Writes the tags to the specified file.
- 
+ @brief The metadata object associated with the tagger.
+*/
+@property (nonatomic, readonly) Metadata *metadata;
+
+
+#pragma mark - Tagging a file
+///-----------------------------------------
+/// @name Tagging a file
+///-----------------------------------------
+
+/**
+ @brief Writes the tags to the specified file.
  @param fileURL The file to tag.
- 
  @return YES if the file was tagged successfully, otherwise NO.
- 
  */
 - (BOOL)tagFile:(NSURL *)fileURL;
 
 
-
 @end
+
 NS_ASSUME_NONNULL_END
