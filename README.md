@@ -22,7 +22,6 @@ The AudioFileTagger framework provides facilities for reading metadata from audi
 github "Phisto/AudioFileTagger" ~> 1.0
 ```
 
-
 ### Manually
 
 If you prefer not to use Carthage, you can integrate AudioFileTagger into your project manually.
@@ -60,10 +59,10 @@ if (!erfolg) {
 
 ## TagLib
 
-The AudioFileTagger framework is using [TagLib](https://taglib.org/) to tag MP3 files with ID3v2 tags.
+The AudioFileTagger framework uses [TagLib](https://taglib.org/) to tag MP3 files with ID3v2 tags.
 TagLib is a library for reading and editing the meta-data of several popular audio formats. TagLib is distributed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/) and [Mozilla Public License (MPL)](https://www.mozilla.org/en-US/MPL/). 
 
-I made a [(Fork)](https://github.com/Phisto/TagLib) of the [official](https://taglib.org/) 1.11.1 Release, so i can easily import the taglib framwork via Carthage.
+I made a [(Fork)](https://github.com/Phisto/TagLib) of the [official](https://taglib.org/) 1.11.1 Release, so i can easily import the TagLib framwork via Carthage.
 
 
 ## License
