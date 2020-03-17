@@ -8,8 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import <AudioFileTagger/AudioFileTagger.h>
-#import <AudioFileTagger/Metadata.h>
+@import AudioFileTagger;
 
 @interface AudioFileTaggerTests : XCTestCase
 
@@ -34,7 +33,6 @@
     NSBundle *bundle = [NSBundle bundleForClass:[AudioFileTaggerTests class]];
 
     NSString * kfile1Path = [bundle pathForResource:@"Black Barrels Waste -final" ofType:@"m4a"];
-    //NSString * kfile2Path = [bundle pathForResource:@"Don't Trust Me" ofType:@"mp3"];
 
     for (NSString *path in @[kfile1Path]) {//, kfile2Path]) {
      
