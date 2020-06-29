@@ -3,7 +3,7 @@
 //  AudioFileTagger
 //
 //  Created by Simon Gaus on 01.10.15.
-//  Copyright © 2015-2019 Simon Gaus. All rights reserved.
+//  Copyright © 2015-2020 Simon Gaus. All rights reserved.
 //
 
 #import "MP3Tagger.h"
