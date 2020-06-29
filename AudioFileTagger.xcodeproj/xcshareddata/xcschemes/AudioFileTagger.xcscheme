@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F4C0FA711BBD47F900E0AD6C"
-               BuildableName = "AudioFileTagger macOS.framework"
+               BuildableName = "AudioFileTagger.framework"
                BlueprintName = "AudioFileTagger macOS"
                ReferencedContainer = "container:AudioFileTagger.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4C0FA711BBD47F900E0AD6C"
-            BuildableName = "AudioFileTagger macOS.framework"
+            BuildableName = "AudioFileTagger.framework"
             BlueprintName = "AudioFileTagger macOS"
             ReferencedContainer = "container:AudioFileTagger.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4C0FA711BBD47F900E0AD6C"
-            BuildableName = "AudioFileTagger macOS.framework"
+            BuildableName = "AudioFileTagger.framework"
             BlueprintName = "AudioFileTagger macOS"
             ReferencedContainer = "container:AudioFileTagger.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F4C0FA711BBD47F900E0AD6C"
-            BuildableName = "AudioFileTagger macOS.framework"
+            BuildableName = "AudioFileTagger.framework"
             BlueprintName = "AudioFileTagger macOS"
             ReferencedContainer = "container:AudioFileTagger.xcodeproj">
          </BuildableReference>
