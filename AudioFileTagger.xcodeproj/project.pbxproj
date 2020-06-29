@@ -21,19 +21,21 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; };
+		4A874B6824AA8D02001E648A /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; };
+		4A874B6A24AA8D71001E648A /* TagLib.framework in Copy Dependent Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
-		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; };
+		F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43743491DA13E090042913F /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F44E545D1D5DE11D00B41FCE /* AudioFileTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E545C1D5DE11D00B41FCE /* AudioFileTaggerTests.m */; };
-		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; };
+		F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F4C0FA761BBD47F900E0AD6C /* AudioFileTagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA751BBD47F900E0AD6C /* AudioFileTagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA811BBD481E00E0AD6C /* MP3Tagger.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C0FA7F1BBD481E00E0AD6C /* MP3Tagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4C0FA821BBD481E00E0AD6C /* MP3Tagger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0FA801BBD481E00E0AD6C /* MP3Tagger.m */; };
 		F4E8DB1F1D5897A8005D5D75 /* NSImage+PNGData.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E8DB1D1D5897A8005D5D75 /* NSImage+PNGData.h */; };
 		F4E8DB201D5897A8005D5D75 /* NSImage+PNGData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8DB1E1D5897A8005D5D75 /* NSImage+PNGData.m */; };
-		F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */; };
+		F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,20 @@
 			remoteInfo = AudioFileTagger;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4A874B6924AA8D69001E648A /* Copy Dependent Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4A874B6A24AA8D71001E648A /* TagLib.framework in Copy Dependent Frameworks */,
+			);
+			name = "Copy Dependent Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4AC69CD123A53FAE008E0532 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -76,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */,
+				4A874B6824AA8D02001E648A /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +231,7 @@
 			buildPhases = (
 				F44E54561D5DE11D00B41FCE /* Sources */,
 				F44E54571D5DE11D00B41FCE /* Frameworks */,
+				4A874B6924AA8D69001E648A /* Copy Dependent Frameworks */,
 				F44E54581D5DE11D00B41FCE /* Resources */,
 			);
 			buildRules = (
@@ -226,21 +244,20 @@
 			productReference = F44E545A1D5DE11D00B41FCE /* AudioFileTaggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */ = {
+		F4C0FA711BBD47F900E0AD6C /* AudioFileTagger macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4C0FA7A1BBD47F900E0AD6C /* Build configuration list for PBXNativeTarget "AudioFileTagger" */;
+			buildConfigurationList = F4C0FA7A1BBD47F900E0AD6C /* Build configuration list for PBXNativeTarget "AudioFileTagger macOS" */;
 			buildPhases = (
 				F4C0FA6D1BBD47F900E0AD6C /* Sources */,
 				F4C0FA6E1BBD47F900E0AD6C /* Frameworks */,
 				F4C0FA6F1BBD47F900E0AD6C /* Headers */,
-				4AC69CD223A5410D008E0532 /* Carthage */,
 				F4ED6A991D8F7E86001DB076 /* Increment Build Number */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AudioFileTagger;
+			name = "AudioFileTagger macOS";
 			productName = AudioFileTagger;
 			productReference = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */;
 			productType = "com.apple.product-type.framework";
@@ -251,7 +268,7 @@
 		F4C0FA691BBD47F900E0AD6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Simon Gaus";
 				TargetAttributes = {
 					F44E54591D5DE11D00B41FCE = {
@@ -281,7 +298,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */,
+				F4C0FA711BBD47F900E0AD6C /* AudioFileTagger macOS */,
 				F44E54591D5DE11D00B41FCE /* AudioFileTaggerTests */,
 				F48DA44E1D9B2CC900070708 /* AudioFileTagger Docs */,
 			);
@@ -300,25 +317,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4AC69CD223A5410D008E0532 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/TagLib.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		F48DA4521D9B2CCF00070708 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,7 +370,7 @@
 /* Begin PBXTargetDependency section */
 		F44E54611D5DE11D00B41FCE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F4C0FA711BBD47F900E0AD6C /* AudioFileTagger */;
+			target = F4C0FA711BBD47F900E0AD6C /* AudioFileTagger macOS */;
 			targetProxy = F44E54601D5DE11D00B41FCE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -384,6 +382,10 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = AudioFileTaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -402,6 +404,10 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = AudioFileTaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -544,7 +550,7 @@
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -578,7 +584,7 @@
 					Cocoa,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.AudioFileTagger;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AudioFileTagger;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
@@ -589,7 +595,7 @@
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -623,7 +629,7 @@
 					Cocoa,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.simonsserver.AudioFileTagger;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AudioFileTagger;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
@@ -659,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4C0FA7A1BBD47F900E0AD6C /* Build configuration list for PBXNativeTarget "AudioFileTagger" */ = {
+		F4C0FA7A1BBD47F900E0AD6C /* Build configuration list for PBXNativeTarget "AudioFileTagger macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4C0FA7B1BBD47F900E0AD6C /* Debug */,
