@@ -36,16 +36,12 @@
             bitmapRep = (NSBitmapImageRep *)currentRepresentation;
         }
     }
-    
     // Create a bitmap representation if one doesn't exist
     if(!bitmapRep) {
-        NSSize size = self.size;
-        [self lockFocus];
-        bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0, 0, size.width, size.height)];
-        [self unlockFocus];
+        CGImageRef ref = [self CGImageForProposedRect:nil context:nil hints:nil];
+        bitmapRep = [[NSBitmapImageRep alloc] initWithCGImage:ref];
     }
-    
-    return [bitmapRep representationUsingType:NSPNGFileType properties:@{}];
+    return [bitmapRep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
 }
 
 #pragma mark -
