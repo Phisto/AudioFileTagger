@@ -70,7 +70,7 @@
         
         // composer
         if (self.metadata.composer) {
-
+            
             TagLib::ID3v2::TextIdentificationFrame *composerFrame = new TagLib::ID3v2::TextIdentificationFrame("TCOM", TagLib::String::Latin1);
             if (composerFrame) {
                 
@@ -88,7 +88,7 @@
             
             NSData *imgData	= [self.metadata.artwork pngData];
             if (imgData) {
-                
+
                 TagLib::ID3v2::AttachedPictureFrame *pictureFrame = new TagLib::ID3v2::AttachedPictureFrame();
                 
                 if (pictureFrame) {
@@ -124,7 +124,6 @@
                 lyricsFrame->setText(TagLib::String((self.metadata.lyrics).UTF8String, TagLib::String::UTF8));
                 if (f.ID3v2Tag()) f.ID3v2Tag()->addFrame(lyricsFrame);
             }
-            
         }        
         
         BOOL successSave = f.save();
