@@ -21,9 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4A874B6824AA8D02001E648A /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; };
-		4A874B6A24AA8D71001E648A /* TagLib.framework in Copy Dependent Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC69CD323A541AC008E0532 /* TagLib.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
@@ -55,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4A874B6A24AA8D71001E648A /* TagLib.framework in Copy Dependent Frameworks */,
 			);
 			name = "Copy Dependent Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +59,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4AC69CD123A53FAE008E0532 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		4AC69CD323A541AC008E0532 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = Carthage/Build/Mac/TagLib.framework; sourceTree = "<group>"; };
 		4AC69CD523A54542008E0532 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F42913C81BBE7A1B0027FC28 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		F42913C91BBE7A1B0027FC28 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
@@ -92,7 +86,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44E545F1D5DE11D00B41FCE /* AudioFileTagger.framework in Frameworks */,
-				4A874B6824AA8D02001E648A /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +95,6 @@
 			files = (
 				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
-				4AC69CD423A541AC008E0532 /* TagLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,13 +140,12 @@
 		F4C0FA681BBD47F900E0AD6C = {
 			isa = PBXGroup;
 			children = (
+				F47BC4201DAC4D67003DD71F /* README.md */,
 				F4C0FA741BBD47F900E0AD6C /* AudioFileTagger */,
 				F44E545B1D5DE11D00B41FCE /* AudioFileTaggerTests */,
 				F4ED6AB81D8F80DA001DB076 /* Frameworks */,
 				F4C0FA731BBD47F900E0AD6C /* Products */,
-				F47BC4201DAC4D67003DD71F /* README.md */,
 				4AC69CD523A54542008E0532 /* LICENSE */,
-				4AC69CD123A53FAE008E0532 /* Cartfile */,
 				F494099D222B678400AAB1D5 /* .gitignore */,
 			);
 			sourceTree = "<group>";
@@ -201,7 +192,6 @@
 		F4ED6AB81D8F80DA001DB076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4AC69CD323A541AC008E0532 /* TagLib.framework */,
 				F43743491DA13E090042913F /* AudioToolbox.framework */,
 				F4ED6AB91D8F80DB001DB076 /* AVFoundation.framework */,
 			);
@@ -258,6 +248,8 @@
 			dependencies = (
 			);
 			name = "AudioFileTagger macOS";
+			packageProductDependencies = (
+			);
 			productName = AudioFileTagger;
 			productReference = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */;
 			productType = "com.apple.product-type.framework";
@@ -295,6 +287,8 @@
 				Base,
 			);
 			mainGroup = F4C0FA681BBD47F900E0AD6C;
+			packageReferences = (
+			);
 			productRefGroup = F4C0FA731BBD47F900E0AD6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,8 +452,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++23";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -521,8 +514,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++23";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
