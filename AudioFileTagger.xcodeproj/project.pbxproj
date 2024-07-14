@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4AC9BC632C434E7100AAC010 /* TagLib in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC9BC622C434E7100AAC010 /* TagLib */; };
 		F42913CA1BBE7A1B0027FC28 /* Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F42913C81BBE7A1B0027FC28 /* Metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F42913CB1BBE7A1B0027FC28 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = F42913C91BBE7A1B0027FC28 /* Metadata.m */; };
 		F43743461DA113330042913F /* Black Barrels Waste -final.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F43743451DA113330042913F /* Black Barrels Waste -final.m4a */; };
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC9BC632C434E7100AAC010 /* TagLib in Frameworks */,
 				F437434A1DA13E090042913F /* AudioToolbox.framework in Frameworks */,
 				F4ED6ABA1D8F80DB001DB076 /* AVFoundation.framework in Frameworks */,
 			);
@@ -249,6 +251,7 @@
 			);
 			name = "AudioFileTagger macOS";
 			packageProductDependencies = (
+				4AC9BC622C434E7100AAC010 /* TagLib */,
 			);
 			productName = AudioFileTagger;
 			productReference = F4C0FA721BBD47F900E0AD6C /* AudioFileTagger.framework */;
@@ -288,6 +291,7 @@
 			);
 			mainGroup = F4C0FA681BBD47F900E0AD6C;
 			packageReferences = (
+				4AC9BC612C434E7100AAC010 /* XCRemoteSwiftPackageReference "swift-taglib" */,
 			);
 			productRefGroup = F4C0FA731BBD47F900E0AD6C /* Products */;
 			projectDirPath = "";
@@ -709,6 +713,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4AC9BC612C434E7100AAC010 /* XCRemoteSwiftPackageReference "swift-taglib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Phisto/swift-taglib";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AC9BC622C434E7100AAC010 /* TagLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AC9BC612C434E7100AAC010 /* XCRemoteSwiftPackageReference "swift-taglib" */;
+			productName = TagLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4C0FA691BBD47F900E0AD6C /* Project object */;
 }
